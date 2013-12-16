@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+<script src="css/source-sans-pro.js"></script>
+<link href="css/styles.css" rel="stylesheet">
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+</head>
+<body>
+<div id='top'></div>
+<div id='middle'></div>
+<div id='bottom'></div>
+<!--TEMPLATE DEFINITIONS-->
+<script id="home-tpl" type="text/x-handlebars-template">
+    <div class='header'><h1>Home</h1></div>
+	<!--div class='imgholder' id='imgholder2'><h1>CLICK ME FOR LIST</h1></div-->
+    <!--div class="scroll"><ul class='employee-list'></ul></div-->
+</script>
+<script id="employee-li-tpl" type="text/x-handlebars-template">
+	<div class="scroll"><ul class='employee-list'>
+    {{#.}}
+    <li><a href="#employees/{{this.id}}">{{this.name}}<br/>{{this.geoy}}, {{this.geox}}</a></li>
+    {{/.}}
+	</ul></div>
+</script>
+<script id="employee-tpl" type="text/x-handlebars-template">
+    <div class='header'><a href='#' class="button header-button header-button-left">Home</a><h1>Details</h1></div>
+	<div style='width:300px'>
+		<div class="flexslider">
+		  <ul class="slides">
+			<li>
+			  <img src="img/{{name}}1.jpg" />
+			</li>
+			<li>
+			  <img src="img/{{name}}2.jpg" />
+			</li>
+			<li>
+			  <img src="img/{{name}}3.jpg" />
+			</li>
+			<li>
+			  <img src="img/{{name}}4.jpg" />
+			</li>
+		  </ul>
+		</div>
+	</div>	
+	<!--images test *** below is working audio and img
+	<div class='imgholder' style='height:350px;'>
+    <img id='image' src='img/{{name}}.jpg' style="margin:10px;width: 100%;max-width:500px"/>
+	</div>
+	
+	<audio controls autoplay style='margin:10px;'>
+		<source src='audio/{{name}}.ogg' type="audio/ogg">
+		<source src='audio/{{name}}.mp3' type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	-->
+    <h1>{{name}}</h1>
+    <h2>{{geoy}}, {{geox}}</h2>
+
+    <span class="location"></span>
+    <ul>
+    <li>Street<br/>{{street}}</li>
+    <li>City, State<br/>{{city}}, {{state}}</li>
+    <li><a href="tel:{{phone}}">Phone<br/>{{phone}}</a></li>
+    <li><a href="#" class="add-location-btn">Add Location</a></li>
+    <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
+    <li><a href="#" class="change-pic-btn">Change Picture</a></li>
+    </ul>
+</script>
+<!--SCRIPT IMPORTS-->
+<script src="phonegap.js"></script>
+<script src="lib/jquery-1.10.2.min.js"></script>
+<script src="lib/jquery.flexslider.js"></script>
+<script src="lib/handlebars.js"></script>
+<script src="js/storage/memory-store-test.js"></script>
+<script src="js/EmployeeView.js"></script>
+<script src="js/HomeView.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

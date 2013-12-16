@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+<script src="css/source-sans-pro.js"></script>
+
+
+<link href="css/jquery.pageslide.css" rel="stylesheet" type="text/css" />
+</head>
+<script src="lib/jquery-1.10.2.min.js"></script>
+
+<script src="lib/jquery.pageslide.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+		controlNav: false, 
+		itemMargin: 10,  
+		minItems: 10
+	});
+	$('.button').on('click', function() {
+		$('.button').pageslide({direction: 'left', href:'_secondary.html'});
+	});
+  });
+</script>
+<body>
+<div>
+<div class='header'><a href='_secondary.html' class="button header-button header-button-left">Home</a><h1>Details</h1></div>
+
+<div class='header'><a href='_secondary.html' class="button header-button header-button-left">Home</a><h1>Details</h1></div>
+<script id="test-tpl" type="text/x-handlebars-template">
+	<li>
+	<img src="img/{{name}} 1.jpg" />
+	</li>
+	<li>
+	<img src="img/{{name}} 2.jpg" />
+	</li>
+	<li>
+	<img src="img/{{name}} 3.jpg" />
+	</li>
+	<li>
+	<img src="img/{{name}} 4.jpg" />
+	</li>
+</script>
+<script src="lib/handlebars.js"></script>
+<script src="js/testView.js"></script>
+<script type="text/javascript" charset="utf-8">
+ new TestView();
+</script>	
+
+</body>
+</html>

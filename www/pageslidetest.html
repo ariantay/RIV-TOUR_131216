@@ -1,0 +1,67 @@
+<html>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+<script src="css/source-sans-pro.js"></script>
+<link href="css/newStyles.css" rel="stylesheet">
+<link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="css/jquery.pageslide.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<script id="employee-tpl" type="text/x-handlebars-template">
+    <div class='header'>
+		<a href="javascript:void(0)" class="button header-button header-button-left">Home</a><h1>Details</h1>
+	</div>
+	<div id='slideSize'>
+		<div class="flexslider">
+		  <ul class="slides">
+			<li>
+			  <img src="img/{{name}} 1.jpg" />
+			</li>
+			<li>
+			  <img src="img/{{name}} 2.jpg" />
+			</li>
+			<li>
+			  <img src="img/{{name}} 3.jpg" />
+			</li>
+			<li>
+			  <img src="img/{{name}} 4.jpg" />
+			</li>
+		  </ul>
+		</div>
+	</div>	
+	<audio controls autoplay style='margin:10px;'>
+		<source src='audio/{{name}}.ogg' type="audio/ogg">
+		<source src='audio/{{name}}.mp3' type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+	<div id='textContainer'>
+		<div id='textDisplay'>
+			{{info}}
+		</div>
+	</div>
+</script>	
+<script src="phonegap.js"></script>
+<script src="lib/jquery-1.10.2.min.js"></script>
+<script src="lib/jquery.pageslide.min.js"></script>
+<script src="lib/jquery.flexslider.js"></script>
+<script src="lib/handlebars.js"></script>
+<script src="js/storage/memory-store-test.js"></script>
+<script src="js/newEmployeeView.js"></script>
+<script src="js/newHomeView.js"></script>
+<script src="js/newMain.js"></script>
+<script type="text/javascript" charset="utf-8">
+  $(window).load(function() {
+	console.log('test1');
+	$('.clicker').on('click', function() {
+		$('.clicker').pageslide({direction: 'left', href:'_secondary.html'});
+	});
+	console.log($.pageslide.href);
+  });
+</script>
+<div>
+<div class='header'><a href="javascript:void(0)" class="clicker">Home</a><h1>Details</h1></div>
+
+<script type="text/javascript" charset="utf-8">
+</body>
+</html>
