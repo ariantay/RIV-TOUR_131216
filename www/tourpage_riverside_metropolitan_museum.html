@@ -7,10 +7,17 @@
 <link href="css/jquery.mobile-1.3.2.css" rel="stylesheet" type="text/css" />
 <link href="css/newStyles2.css" rel="stylesheet">
 <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="css/jquery.pageslide.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
+<div data-role="page" id="page1">
+<div data-role="header" data-position="inline">
+	<h1>City of Riverside Tour Guide</h1>
+	<a href="options.html" class="ui-btn-left" data-ajax="false" data-icon="home" data-direction="reverse">
+	Settings
+	</a>  
+</div>
 <div class='header'>
 <span class="button header-button header-button-left">Home</span>
 <h1>Details</h1>
@@ -19,39 +26,36 @@
 <div class="flexslider">
 <ul class="slides">
 <li>
-<img src="img/{{name}} 1.jpg" />
+<img src="img/riverside_metropolitan_museum_1.jpg" />
 </li>
 <li>
-<img src="img/{{name}} 2.jpg" />
+<img src="img/riverside_metropolitan_museum_2.jpg" />
 </li>
 <li>
-<img src="img/{{name}} 3.jpg" />
+<img src="img/riverside_metropolitan_museum_3.jpg" />
 </li>
 <li>
-<img src="img/{{name}} 4.jpg" />
+<img src="img/riverside_metropolitan_museum_4.jpg" />
 </li>
 </ul>
 </div>
 </div>	
 <audio controls autoplay style='margin:10px;'>
-<source src='audio/{{name}}.ogg' type="audio/ogg">
-<source src='audio/{{name}}.mp3' type="audio/mpeg">
+<source src='audio/riverside_metropolitan_museum.ogg' type="audio/ogg">
+<source src='audio/riverside_metropolitan_museum.mp3' type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
 <div id='textContainer' class='sizeControl'>
 <div id='textDisplay'>
-{{info}}
+<script>$('#textDisplay').load('text/riverside_metropolitan_museum_eng.txt');</script>
 </div>
 </div>	
-
+</div>
 <!--SCRIPT IMPORTS-->
 <script src="phonegap.js"></script>
 <script src="lib/jquery-1.10.2.min.js"></script>
 <script src="lib/jquery.mobile-1.3.2.min.js"></script>
 <script src="lib/jquery.flexslider.js"></script>
-<!--<script src="lib/jquery.slidepanel.js"></script>-->
-<script src="lib/handlebars.js"></script>
-<script src="lib/jquery.pageslide.min.js"></script>
 <script src="js/storage/memory-store-test.js"></script>
 <script src="js/newEmployeeView.js"></script>
 <script src="js/newHomeView.js"></script>
