@@ -39,26 +39,38 @@ position:relative;
 right:-300px;
 }
 */
+/*ALL ELEMENTS MUST HAVE HEIGHT FOR ANY CHILD ELEMENTS TO USE PERCENTAGE SIZE*/
+#page1{
+height:100%;
+}
 
 #slideSize{
 	/*margin: 10 10 10 10;*/
-	width: 90%;
+	max-height: 450px;
+	max-width: 300px;
 	margin: 0 auto;
 	text-align: left;
-	padding: 5px;
-	
+	padding: 5px;	
+}
+img{
+	max-height: 100%;
+	max-width: 100%
 }
 
 #textContainer{
-	width:86%; 
-	height:30%; 
+	width: 300px; 
+	max-height:250px; 
 	margin: 0 auto;
 	text-align: left;
+}
+
+.imgs{
+	height: 30%;
 }
 
 #textDisplay{
 	width:86%; 
-	height:30%; 
+	max-height:30%; 
 	margin: 0 auto;
 	text-align: left;
 	height: 100%;
@@ -73,7 +85,10 @@ right:-300px;
     outline: none;
 	overflow: auto;
 }
-
+#audioContainer{
+	max-width:300px;
+	max-height: 100px;
+}
 audio {
 	width: 90%;
 	height: 8%;
@@ -137,11 +152,12 @@ audio {
     border-bottom: solid 1px #eee;
 }
 
+/*
 #page1{
-    background: url("img/Universalist Unitarian Church of Riverside 3.jpg") 50% 50% repeat;
+    background: url("img/Universalist Unitarian Church of Riverside 3.jpg") 50% 50% repeat;}
 	/*background-size: 22px 28px;*/
 
-}
+
 
 .header h1 {
     padding: 0;
@@ -346,4 +362,18 @@ li>a.tappable-active {
     -moz-transition-duration: .375s;
     -webkit-transition-duration: .375s;
     -o-transition-duration: .375s;
+}
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
 }
