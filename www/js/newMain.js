@@ -1,20 +1,11 @@
 var app = {
-/*
-    showAlert: function (message, title) {
-        if (navigator.notification) {
-            navigator.notification.alert(message, null, title, 'OK');
-        } else {
-            alert(title ? (title + ": " + message) : message);
-        }
-    },
-*/	
     registerEvents: function() {
         $(window).on('hashchange', $.proxy(this.route, this));
 		
 		//set a listener for device ready for phonegap
 		//document.on("deviceready", this.startTracking); 
 		/*fake event that we can trigger to run tests*/
-		$(document).on('click', app.startTracking); 
+		//$(document).on('click', app.startTracking); 
 
     },
 	
