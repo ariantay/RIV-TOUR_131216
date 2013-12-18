@@ -9,16 +9,20 @@ var app = {
         var self = this;
         var hash = window.location.hash;
         if (!hash) {
+			$('#headerText').html('City of Riverside');
+			//location.href='#';
 		}	
         var match = hash.match(this.detailsURL);
         if (match) {
-		/*
-			need to add new urls here to the new html pages
-			try to modify this to generate dynamic html pages
-            this.store.findById(Number(match[1]), function(employee) {
-                $('#middle').html(new EmployeeView(employee).render().el);
-            });
-			*/
+			var statue = this.store.statues[Number(match[1])];
+			$('#headerText').html(statue.name);
+			$('#textDisplay').html(statue.info);
+			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
+			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
+			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
+			$('.image_3').attr('src','img/'+statue.urlstring+'_3.jpg');
+			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
+			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
         }
 		$('.flexslider').flexslider({
 				animation: "slide",
@@ -96,7 +100,7 @@ var app = {
 		this.counter = 0;
 		var watchID = null;
         var self = this;
-        this.detailsURL = /^#employees\/(\d{1,})/;
+        this.detailsURL = /^#statues\/(\d{1,})/;
         this.registerEvents();
         this.store = new MemoryStore(function() {
             self.route();

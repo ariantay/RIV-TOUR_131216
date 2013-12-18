@@ -1,60 +1,66 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
-<script src="css/source-sans-pro.js"></script>
-<link href="css/jquery.mobile-1.3.2.css" rel="stylesheet" type="text/css" />
-<link href="css/newStyles2.css" rel="stylesheet">
-<link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="css/jquery.pageslide.css" rel="stylesheet" type="text/css" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link href="css/newStyles2.css" rel="stylesheet">
+	<link href="css/jquery.mobile-1.3.2.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
 <body>
-<div class='header'>
-<span class="button header-button header-button-left">Home</span>
-<h1>Details</h1>
+<div data-role="page" id="page1">
+<div data-role="header" data-theme='b' data-position="inline">
+	<h1 id='headerText'>Tour</h1>
+	<a href="tourpage.html" class="ui-btn-left" data-ajax="false" data-icon="left-arrow" data-theme='b' data-direction="reverse">
+	Back
+	</a>  
 </div>
 <div id='slideSize' class='sizeControl'>
 <div class="flexslider">
 <ul class="slides">
 <li>
-<img src="img/{{name}} 1.jpg" />
+<img class='image_1' src="img/tibbets_1.jpg" />
 </li>
 <li>
-<img src="img/{{name}} 2.jpg" />
+<img class='image_2' src="img/tibbets_2.jpg" />
 </li>
 <li>
-<img src="img/{{name}} 3.jpg" />
+<img class='image_3' src="img/tibbets_3.jpg" />
 </li>
 <li>
-<img src="img/{{name}} 4.jpg" />
+<img class='image_4' src="img/tibbets_4.jpg" />
+</li>
+<li>
+<img class='image_5' src="img/tibbets_5.jpg" />
 </li>
 </ul>
 </div>
 </div>	
-<audio controls autoplay style='margin:10px;'>
-<source src='audio/{{name}}.ogg' type="audio/ogg">
-<source src='audio/{{name}}.mp3' type="audio/mpeg">
+<div id='audioContainer'>
+<audio controls autoplay>
+<source class='audioFile' src='audio/tibbets.mp3' type="audio/mpeg">
 Your browser does not support the audio element.
 </audio>
-<div id='textContainer' class='sizeControl'>
-<div id='textDisplay'>
-{{info}}
 </div>
-</div>	
+<div id='textContainer'>
+<div id='textDisplay'>
+International Spirit of Riverside 
 
+Riverside has long maintained a spirit of Internationalism and recognition of its multicultural history.  Going back to Frank Miller, the founder of the Mission Inn, Riverside has hosted dignitaries from countries all over the world and provided leadership on an International scale.  Riverside’s multiculturism has existed for nearly 150 years with large segments of various cultures within its population going back to the 1870s.  For example the Mission Inn hosted Japanese, Russian and European dignitaries, national and important state politicians and celebrities, such as several US presidents, Prince Kaya of Japan, Prince Gustav of Sweden, Booker T. Washington, John Muir, and Amelia Earhart.  The World Affairs Council was started in Riverside at the Mission Inn (and was once attended by John F. Kennedy here) and other international peace and social conferences have been hosted here.
+
+Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.
+</div>
+</div>
+</div>
 <!--SCRIPT IMPORTS-->
 <script src="phonegap.js"></script>
 <script src="lib/jquery-1.10.2.min.js"></script>
 <script src="lib/jquery.mobile-1.3.2.min.js"></script>
 <script src="lib/jquery.flexslider.js"></script>
-<!--<script src="lib/jquery.slidepanel.js"></script>-->
-<script src="lib/handlebars.js"></script>
-<script src="lib/jquery.pageslide.min.js"></script>
 <script src="js/storage/memory-store-test.js"></script>
-<script src="js/newEmployeeView.js"></script>
-<script src="js/newHomeView.js"></script>
 <script src="js/newMain.js"></script>
 
 </body>
