@@ -24,6 +24,7 @@ body {
 
 */s
 /*ALL ELEMENTS MUST HAVE HEIGHT FOR ANY CHILD ELEMENTS TO USE PERCENTAGE SIZE*/
+
 #page1{
 height:100%;
 min-height:100%;
@@ -33,43 +34,26 @@ min-height:100%;
   -o-background-size: cover;
   background-size: cover;
 }
+#header{
+	height: 36px;
+}
 
 #slideSize{
 	/*margin: 10 10 10 10;*/
 	max-height: 400px;
 	max-width: 300px;
-	height: 70%;
-	width: 70%;
+	/*height: 70%;
+	width: 70%;*/
 	margin: 0 auto;
 	text-align: left;
 	padding: 5px;	
 }
-
-
 #textContainer{
-	width: 200px; 
+	width: 300px; 
 	max-height:200px; 
 	margin: 0 auto;
 	text-align: left;
 	overflow: auto;
-}
-
-
-#textDisplay{
-	width:86%; 
-	max-height:30%; 
-	margin: 0 auto;
-	text-align: left;
-	height: 100%;
-	width: 100%;
-    background: white;
-    border: 1px solid #DDD;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #DDD inset;
-    color: #666;
-    float: left;
-    /*padding: 5px 10px;*/
-    outline: none;
 }
 #audioContainer{
 	display: table;
@@ -84,6 +68,21 @@ audio {
 	margin: 0 auto;
 	text-align: left;
 }
+#textDisplay{
+	margin: 0 auto;
+	text-align: left;
+	height: 100%;
+	width: 100%;
+    background: white;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #DDD inset;
+    color: #666;
+    float: left;
+    /*padding: 5px 10px;*/
+    outline: none;
+}
+
 /*
 
 .panel {
