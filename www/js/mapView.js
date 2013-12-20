@@ -1,3 +1,5 @@
+
+
     var minZoomLevel = 15;
     
     var map = new google.maps.Map(document.getElementById('map_canvas'), {

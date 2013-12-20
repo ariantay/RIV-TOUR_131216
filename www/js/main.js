@@ -1,121 +1,110 @@
 var app = {
-
-    showAlert: function (message, title) {
-        if (navigator.notification) {
-            navigator.notification.alert(message, null, title, 'OK');
-        } else {
-            alert(title ? (title + ": " + message) : message);
-        }
-    },
-
     registerEvents: function() {
-		//routing function here
         $(window).on('hashchange', $.proxy(this.route, this));
-		/* **Not required right now -- Highlights taps**
-        $('#bottom').on('mousedown', 'a', function(event) {
-            $(event.target).addClass('tappable-active');
-        });
-        $('#bottom').on('mouseup', 'a', function(event) {
-            $(event.target).removeClass('tappab le-active');
-        });
-		*/
+		//document.on("deviceready", this.startTracking); 
+		/*fake event that we can trigger to run tests*/
+		//$(document).on('click', app.startTracking); 
     },
-
     route: function() {
         var self = this;
         var hash = window.location.hash;
-		//if initial load, create new homepage, otherwise load current one if no hash
-		//slidepage can detect routing of new homepage.
-		//*Not necessary for riv app, but smart...
-		//Note elements inserted at div #middle
         if (!hash) {
-			//console.log('before');
-            $('#middle').html(new HomeView(this.store).render().el);
-			setTimeout(function(){ 
-				$('.flexslider').flexslider({
-					animation: "slide"
-				});
-			}, 250);
-			//console.log('after');
-			//console.log('after2');
-			/*
-			
-			$('.flexslider').removeData('flexslider');
-			$('.flexslider').flexslider({
-				animation: "slide"
-			});
-			*/
-			return;
+			$('#headerText').html('City of Riverside');
+			//location.href='#';
 		}	
         var match = hash.match(this.detailsURL);
         if (match) {
-            this.store.findById(Number(match[1]), function(employee) {
-                $('#middle').html(new EmployeeView(employee).render().el);
-            });
+			var statue = this.store.statues[Number(match[1])];
+			$('#headerText').html(statue.name);
+			$('#textDisplay').html(statue.info);
+			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
+			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
+			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
+			$('.image_3').attr('src','img/'+statue.urlstring+'_3.jpg');
+			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
+			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
+        }
+		$('.flexslider').flexslider({
+				animation: "slide",
+				controlNav: false
+		});
+    },
+	//phonegap merges
+	startTracking: function() {
+		var options = {enableHighAccuracy: true};
+		//console.log('calling fake position function from startTracking');
+		//app.fakePosition(app.updateDistance);
+		watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+	},
+	onSuccess: function (position) {
+		//console.log('onSuccess called');
+		var distance = app.getDistanceFromLatLonInFeet(position.geoy,position.geox,0,0);
+		//console.log(distance);
+		//MODIFY THIS
+		$('#distance_'+position.id).html(position.distance - distance);
+		if (position.distance - distance<1.5) {
+			//AND THIS
+			location.href="#employees/" + position.id;		
+		}
+	},
+	onError: function (error) {
+		alert('code: '    + error.code    + '\n' +
+			  'message: ' + error.message + '\n');
+	},
+	/*
+	fakePosition: function (successCallback, errorCallback) {
+		if (true){
+			this.counter++;
+			var self = this;
+			if (!this.functionRunning && this.counter > 4){
+			this.functionRunning = true;
 			setTimeout(function(){ 
-				$('.flexslider').flexslider({
-					animation: "slide"
-				});
-			}, 250);
-        }
-    },
-/* **NO SLIDE PAGE FOR NOW**
-    slidePage: function(page) {
-	//this is the only guy that handles the transition
-        var currentPageDest,
-            self = this;
-
-        // If there is no current page (app just started) -> No transition: Position new page in the view port
-        if (!this.currentPage) {
-            $(page.el).attr('class', 'page stage-center');
-            $('#middle').append(page.el);
-            this.currentPage = page;
-            return;
-        }
-
-        // Cleaning up: remove old pages that were moved out of the viewport
-        $('.stage-right, .stage-left').not('.homePage').remove();
-
-        if (page === app.homePage) {
-            // Always apply a Back transition (slide from left) when we go back to the search page
-            $(page.el).attr('class', 'page stage-left');
-            currentPageDest = "stage-right";
-        } else {
-            // Forward transition (slide from right)
-            $(page.el).attr('class', 'page stage-right');
-            currentPageDest = "stage-left";
-        }
-
-        $('#middle').append(page.el);
-
-        // Wait until the new page has been added to the DOM...
-        setTimeout(function() {
-            // Slide out the current page: If new page slides from the right -> slide current page to the left, and vice versa
-            $(self.currentPage.el).attr('class', 'page transition ' + currentPageDest);
-            // Slide in the new page
-            $(page.el).attr('class', 'page stage-center transition');
-            self.currentPage = page;
-        });
-
-    },
-*/
+				//successCallback(); i dont know why this doesn't work
+				self.updateDistance();
+			}, 500);
+			}				
+			return;
+		}
+		errorCallback;
+	},
+	updateDistance: function() {
+		for (var i=0; i < this.numStatues; i++) {
+			console.log(this.store.employees[i]);
+			var distance = app.getDistanceFromLatLonInFeet(this.store.employees[i].geoy,this.store.employees[i].geox,0,0);
+			console.log(distance);
+			$('.distance_'+this.store.employees[i].id).html(this.store.employees[i].distance - distance);
+			if (this.store.employees[i].distance - distance<1.5) location.href="#employees/" + this.store.employees[i].id;
+		}
+		this.functionRunning = false;
+	},
+	*/
+	getDistanceFromLatLonInFeet: function (lat1,lon1,lat2,lon2) {
+		var R = 6371; // Radius of the earth in km
+		var dLat = deg2rad(lat2-lat1);  // deg2rad below
+		var dLon = deg2rad(lon2-lon1);
+		var a =
+		Math.sin(dLat/2) * Math.sin(dLat/2) +
+		Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+		Math.sin(dLon/2) * Math.sin(dLon/2)
+		;
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+		var d = R * c * 3280.8; // Distance in feet
+		return d;
+	},  
+	deg2rad: function (deg) {
+		return deg * (Math.PI/180)
+	},
     initialize: function() {
+		this.numStatues = 4;
+		this.functionRunning = false;
+		this.counter = 0;
+		var watchID = null;
         var self = this;
-        this.detailsURL = /^#employees\/(\d{1,})/;
+        this.detailsURL = /^#statues\/(\d{1,})/;
         this.registerEvents();
         this.store = new MemoryStore(function() {
             self.route();
         });
-		
-		/*  *This isnt going to work...render is called dynamically*
-		$(window).load(function() {
-			$('.flexslider').flexslider({
-				animation: "slide"
-			});
-		});
-		*/
     }
-
 };
-
-app.initialize();
+$(window).load(app.initialize());
