@@ -20,6 +20,9 @@ body {
 	top: 0;
 	bottom: 0;
 }
+#map-canvas{
+	height:50%;
+}
 #page1{
 height:100%;
 min-height:100%;
