@@ -93,7 +93,7 @@ var app = {
 	},  
 	deg2rad: function (deg) {
 		return deg * (Math.PI/180)
-	},
+	},    
     initialize: function() {
 		this.numStatues = 4;
 		this.functionRunning = false;
@@ -103,8 +103,9 @@ var app = {
         this.detailsURL = /^#statues\/(\d{1,})/;
         this.registerEvents();
         this.store = new MemoryStore(function() {
-            self.route();
+           window.mapper.initialize();
         });
+		this.route();
     }
 };
 $(window).load(app.initialize());
