@@ -99,3 +99,17 @@ audio {
     /*padding: 5px 10px;*/
     outline: none;
 }
+
+#button1
+{
+	height: 35px;
+	width: 28px;
+	font-size: 6px;
+}
+
+
+.ui-header .ui-btn-icon-left .ui-btn-inner
+{
+	height: 20px;
+	padding-left: 3px;
+}
