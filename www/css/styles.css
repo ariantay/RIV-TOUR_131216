@@ -72,6 +72,20 @@ min-height:100%;
 	text-align: left;
 	overflow: auto;
 }
+
+#home_textContainer
+{
+	width: 300px; 
+	max-height:400px; 
+	margin: 0 auto;
+	text-align: left;
+	overflow: auto;
+	background-color:#FFEC9A;
+  	border:2px solid black;
+  	opacity:0.8;
+  	border-radius: 25px;
+}
+
 #audioContainer{
 	display: table;
     margin: 0 auto;
@@ -86,6 +100,7 @@ audio {
 	margin: 0 auto;
 	text-align: left;
 }
+
 #textDisplay{
 	margin: 0 auto;
 	text-align: left;
@@ -101,7 +116,18 @@ audio {
     outline: none;
 }
 
-#button1
+
+.home_paragraph
+{
+	margin: 0 auto;
+	height: 100%;
+	width: 96%;
+    padding: 5px;  
+    font-weight:bold;
+    color:#000000;
+}
+
+.button
 {
 	height: 35px;
 	width: 28px;
