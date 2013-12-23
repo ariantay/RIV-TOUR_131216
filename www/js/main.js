@@ -28,6 +28,7 @@ var app = {
 			var el2 = $("<div/>");
 			$(el2).append(el);
 			$('#distance').html(el);
+			$('#distance').popup("open")
         }
 		$('.flexslider').flexslider({
 				animation: "slide",
