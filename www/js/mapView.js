@@ -22,7 +22,7 @@ var mapper = {
 				map: this.map,
 				title:statue.name
 			});
-			console.log(statue);	//$('.distance_'+this.store.employees[i].id).html(this.store.employees[i].distance - distance);
+			//console.log(statue);	//$('.distance_'+this.store.employees[i].id).html(this.store.employees[i].distance - distance);
 			//if (this.store.employees[i].distance - distance<1.5) location.href="#employees/" + this.store.employees[i].id;
 		}
     }    
