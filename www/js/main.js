@@ -23,6 +23,11 @@ var app = {
 			$('.image_3').attr('src','img/'+statue.urlstring+'_3.jpg');
 			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
+			var el = $(document.createElement('div'));
+			$(el).attr('id', 'temp');
+			var el2 = $("<div/>");
+			$(el2).append(el);
+			$('#distance').html(el);
         }
 		$('.flexslider').flexslider({
 				animation: "slide",
@@ -37,10 +42,19 @@ var app = {
 		watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 	},
 	onSuccess: function (position) {
-		//console.log('onSuccess called');
-		var distance = app.getDistanceFromLatLonInFeet(position.geoy,position.geox,0,0);
-		//console.log(distance);
-		//MODIFY THIS
+		var el = $(document.createElement('div'));
+		$(el).attr('id', 'temp');
+		
+		for (var i=0; i < this.numStatues; i++) {
+			var statue = this.store.statues[i];
+			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.long);
+			var htmlString = 'statueName: ' + statue.name + ' ::: ' + distance + '</br>';
+			el.html().append(htmlString);
+			//if (this.store.employees[i].distance - distance<1.5) location.href="#employees/" + this.store.employees[i].id;
+		}
+		var el2 = $("<div/>");
+		$(el2).append(el);
+		$('#distance').append(el);
 		$('#distance_'+position.id).html(position.distance - distance);
 		if (position.distance - distance<1.5) {
 			//AND THIS
