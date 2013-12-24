@@ -21,7 +21,6 @@ var app = {
 			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
         }
-		app.startTracking();
 		$('.flexslider').flexslider({
 				animation: "slide",
 				controlNav: false
@@ -76,6 +75,7 @@ var app = {
            window.mapper.initialize();
         });
 		this.route();
+		app.startTracking();
     }
 };
 $(window).load(app.initialize());
