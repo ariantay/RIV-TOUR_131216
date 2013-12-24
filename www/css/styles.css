@@ -65,18 +65,23 @@ min-height:100%;
 	margin: 0; 
 	padding: 0;
 }
+
 #textContainer{
 	width: 300px; 
 	max-height:200px; 
 	margin: 0 auto;
 	text-align: left;
 	overflow: auto;
+	background-color:#FFEC9A;
+  	border: 2px solid black;
+  	opacity: 0.9;
+  	border-radius: 25px;
 }
 
-#home_textContainer
+#home_text_container
 {
 	width: 300px; 
-	max-height:400px; 
+	max-height:330px; 
 	margin: 0 auto;
 	text-align: left;
 	overflow: auto;
@@ -101,23 +106,19 @@ audio {
 	text-align: left;
 }
 
-#textDisplay{
+#statue_text
+{
 	margin: 0 auto;
-	text-align: left;
 	height: 100%;
-	width: 100%;
-    background: white;
-    border: 1px solid #DDD;
-    border-radius: 5px;
-    box-shadow: 0 0 5px #DDD inset;
-    color: #666;
-    float: left;
-    /*padding: 5px 10px;*/
-    outline: none;
+	width: 95%;
+    padding: 7px; 
+    font-family: Helvetica,Arial,sans-serif; 
+    font-weight: bold;
+    color:black;
 }
 
 
-.home_paragraph
+#home_text
 {
 	margin: 0 auto;
 	height: 100%;
@@ -127,6 +128,7 @@ audio {
     font-weight: bold;
     color:black;
 }
+
 
 .button
 {
