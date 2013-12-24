@@ -23,13 +23,16 @@ var app = {
 			$('.image_3').attr('src','img/'+statue.urlstring+'_3.jpg');
 			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
+			/*
 			var el = $(document.createElement('div'));
 			$(el).attr('id', 'temp');
 			var el2 = $("<div/>");
 			$(el2).append(el);
 			$('#distance').html(el);
 			$('#distance').popup("open")
+			*/
         }
+		app.startTracking();
 		$('.flexslider').flexslider({
 				animation: "slide",
 				controlNav: false
@@ -40,7 +43,13 @@ var app = {
 		var options = {enableHighAccuracy: true};
 		//console.log('calling fake position function from startTracking');
 		//app.fakePosition(app.updateDistance);
-		watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+		if (navigator.gelolocation){
+			app.watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+		}else{
+		//WE ARE JUST FAKING THIS TO TEST ON DESKTOP SITE
+			var fakePosition = {'coords':{'latitude':33.981197,'longitude':-117.376176}};
+			app.onSuccess(fakePosition);
+		}
 	},
 	onSuccess: function (position) {
 		var el = $(document.createElement('div'));
@@ -48,19 +57,20 @@ var app = {
 		
 		for (var i=0; i < this.numStatues; i++) {
 			var statue = this.store.statues[i];
-			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.long);
+			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
 			var htmlString = 'statueName: ' + statue.name + ' ::: ' + distance + '</br>';
-			el.html().append(htmlString);
+			el.append(htmlString);
 			//if (this.store.employees[i].distance - distance<1.5) location.href="#employees/" + this.store.employees[i].id;
 		}
 		var el2 = $("<div/>");
 		$(el2).append(el);
 		$('#distance').append(el);
-		$('#distance_'+position.id).html(position.distance - distance);
+		//$('#distance').popup("open")
+		/*$('#distance_'+position.id).html(position.distance - distance);
 		if (position.distance - distance<1.5) {
 			//AND THIS
 			location.href="#employees/" + position.id;		
-		}
+		}*/
 	},
 	onError: function (error) {
 		alert('code: '    + error.code    + '\n' +
@@ -95,11 +105,11 @@ var app = {
 	*/
 	getDistanceFromLatLonInFeet: function (lat1,lon1,lat2,lon2) {
 		var R = 6371; // Radius of the earth in km
-		var dLat = deg2rad(lat2-lat1);  // deg2rad below
-		var dLon = deg2rad(lon2-lon1);
+		var dLat = app.deg2rad(lat2-lat1);  // deg2rad below
+		var dLon = app.deg2rad(lon2-lon1);
 		var a =
 		Math.sin(dLat/2) * Math.sin(dLat/2) +
-		Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+		Math.cos(app.deg2rad(lat1)) * Math.cos(app.deg2rad(lat2)) *
 		Math.sin(dLon/2) * Math.sin(dLon/2)
 		;
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
