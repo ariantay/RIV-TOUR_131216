@@ -67,7 +67,7 @@ var app = {
 		this.numStatues = 4;
 		this.functionRunning = false;
 		this.counter = 0;
-		var watchID = null;
+		var watchID = app.startTracking();
         var self = this;
         this.detailsURL = /^#statues\/(\d{1,})/;
         this.registerEvents();
@@ -75,7 +75,6 @@ var app = {
            window.mapper.initialize();
         });
 		this.route();
-		app.startTracking();
     }
 };
 $(window).load(app.initialize());
