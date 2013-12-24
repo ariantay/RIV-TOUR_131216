@@ -16,7 +16,7 @@ var app = {
         if (match) {
 			var statue = this.store.statues[Number(match[1])];
 			$('#headerText').html(statue.name);
-			//$('#statue_text').html(statue.info);
+			$('#statue_text').html(statue.info);
 			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
@@ -44,13 +44,15 @@ var app = {
 		var options = {enableHighAccuracy: true};
 		//console.log('calling fake position function from startTracking');
 		//app.fakePosition(app.updateDistance);
+		/*
 		if (navigator.gelolocation){
 			app.watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
 		}else{
 		//WE ARE JUST FAKING THIS TO TEST ON DESKTOP SITE
 			var fakePosition = {'coords':{'latitude':33.981197,'longitude':-117.376176}};
 			app.onSuccess(fakePosition);
-		}
+		}*/
+		app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
 		var el = $(document.createElement('div'));
