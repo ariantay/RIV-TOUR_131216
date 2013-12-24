@@ -16,7 +16,7 @@ var app = {
         if (match) {
 			var statue = this.store.statues[Number(match[1])];
 			$('#headerText').html(statue.name);
-			$('#textDisplay').html(statue.info);
+			$('#statue_text').html(statue.info);
 			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
@@ -29,10 +29,11 @@ var app = {
 			var el2 = $("<div/>");
 			$(el2).append(el);
 			$('#distance').html(el);
-			$('#distance').popup("open")
-			*/
+			$('#distance').popup("open");
+			*/	
         }
 		app.startTracking();
+		
 		$('.flexslider').flexslider({
 				animation: "slide",
 				controlNav: false
@@ -58,13 +59,14 @@ var app = {
 		for (var i=0; i < this.numStatues; i++) {
 			var statue = this.store.statues[i];
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
-			var htmlString = 'statueName: ' + statue.name + ' ::: ' + distance + '</br>';
+			var htmlString = 'statueName: ' + statue.name + ' ::: ' + distance + '<br/>';
 			el.append(htmlString);
 			//if (this.store.employees[i].distance - distance<1.5) location.href="#employees/" + this.store.employees[i].id;
 		}
 		var el2 = $("<div/>");
 		$(el2).append(el);
-		$('#distance').append(el);
+		//$('#statue_text').html(el);
+		$('#distance').html(el);
 		//$('#distance').popup("open")
 		/*$('#distance_'+position.id).html(position.distance - distance);
 		if (position.distance - distance<1.5) {
