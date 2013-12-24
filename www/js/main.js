@@ -77,4 +77,21 @@ var app = {
 		this.route();
     }
 };
-$(window).load(app.initialize());
+app.initialize();
+//console.log(numStatues); need to initialize right away in here.
+//use below event to check global variable and load the proper page
+$(document).on("pageshow", "#tourpage", function () {
+	app.route();
+	//slider won't show until resize, weird
+	$(window).resize();
+});
+/*
+$(document).on("pageshow", "#loginPage", function () {
+    alert("here 2");
+$("#tourpage").on("pageshow" , function() {
+	$('.flexslider').flexslider({
+				animation: "slide",
+				controlNav: false
+	});
+});
+*/
