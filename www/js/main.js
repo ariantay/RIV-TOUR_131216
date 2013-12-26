@@ -71,7 +71,6 @@ var app = {
         this.store = new MemoryStore(function() {
            window.mapper.initialize();
         });
-		this.route();
 		this.initialized = true;
     }
 };
