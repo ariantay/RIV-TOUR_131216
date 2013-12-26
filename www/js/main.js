@@ -75,15 +75,22 @@ var app = {
            window.mapper.initialize();
         });
 		this.route();
+		this.initialized = true;
     }
 };
-app.initialize();
+//app.initialize();
 //console.log(numStatues); need to initialize right away in here.
 //use below event to check global variable and load the proper page
+$(document).on("pagecreate", "#homepage", function () {
+   if(!app.initialized){
+	app.initialize();
+   }
+});	
 $(document).on("pageshow", "#tourpage", function () {
 	app.route();
 	//slider won't show until resize, weird
 	$(window).resize();
+	console.log(mapper.map);
 });
 /*
 $(document).on("pageshow", "#loginPage", function () {
