@@ -7,7 +7,9 @@ var app = {
 			$('#headerText').html('City of Riverside');
 			// ** next steps - implement load to tour map **
 		}else{
-			var statue = this.store.statues[statueID];
+			var statue = app.store.statues[statueID];
+			// ** debugging marker on click issue **
+			console.log(statueID +" "+ statue.name);
 			$('#headerText').html(statue.name);
 			$('#statue_text').html(statue.info);
 			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
