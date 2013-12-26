@@ -2,16 +2,12 @@ var app = {
     registerEvents: function() {
         $(window).on('hashchange', $.proxy(this.route, this));
     },
-    route: function() {
-        var self = this;
-        var hash = window.location.hash;
-        if (!hash) {
+	routeTo: function(statueID) {
+		if (statueID === app.numStatues){
 			$('#headerText').html('City of Riverside');
-			//location.href='#';
-		}	
-        var match = hash.match(this.detailsURL);
-        if (match) {
-			var statue = this.store.statues[Number(match[1])];
+			// ** next steps - implement load to tour map **
+		}else{
+			var statue = this.store.statues[statueID];
 			$('#headerText').html(statue.name);
 			$('#statue_text').html(statue.info);
 			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
@@ -20,12 +16,12 @@ var app = {
 			$('.image_3').attr('src','img/'+statue.urlstring+'_3.jpg');
 			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
-        }
+		}
 		$('.flexslider').flexslider({
 				animation: "slide",
 				controlNav: false
 		});
-    },
+	},
 	startTracking: function() {
 		var options = {enableHighAccuracy: true};
 		app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
@@ -64,6 +60,7 @@ var app = {
 		return deg * (Math.PI/180)
 	},    
     initialize: function() {
+		//this.statueID = 0;	// **not needed, explicitly call destination **
 		this.numStatues = 4;
 		this.functionRunning = false;
 		this.counter = 0;
@@ -78,27 +75,13 @@ var app = {
 		this.initialized = true;
     }
 };
-//app.initialize();
-//console.log(numStatues); need to initialize right away in here.
-//use below event to check global variable and load the proper page
 $(document).on("pagecreate", "#homepage", function () {
    if(!app.initialized){
 	app.initialize();
    }
 });	
 $(document).on("pageshow", "#tourpage", function () {
-	app.route();
-	//slider won't show until resize, weird
-	$(window).resize();
+	app.routeTo(2);			//** next steps - make this load to tourmap **
+	$(window).resize();		//slider won't show until resize...
 	console.log(mapper.map);
 });
-/*
-$(document).on("pageshow", "#loginPage", function () {
-    alert("here 2");
-$("#tourpage").on("pageshow" , function() {
-	$('.flexslider').flexslider({
-				animation: "slide",
-				controlNav: false
-	});
-});
-*/
