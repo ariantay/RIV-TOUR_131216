@@ -26,16 +26,14 @@
 <!-- Home -->
 <!-- Home -->
 <div data-role="page" id="homepage">
-    <div id="header" data-theme="b" data-role="header" class="header">
-        <h3>
-            City of Riverside Tour Guide
-        </h3>
-    </div>
-    <div data-role="content">
+	<div id="header" data-theme="b" data-role="header" class="header">
+		<h3>City of Riverside Tour Guide</h3>
+	</div>
+	<div data-role="content">
         <div id="home_navigation" data-role="navbar" data-iconpos="top" class="home_navigation">
             <ul>
                 <li>
-                    <a onclick="location.href='#tourpage'"data-transition="fade" data-theme="e" data-icon="star">
+                    <a onclick="location.href='#tourpage_home'"data-transition="fade" data-theme="e" data-icon="star">
                         Begin Tour
                     </a>
                 </li>
@@ -109,13 +107,15 @@ Riverside was the first American city to take part in the International Sister C
 </div>
 </div>
 </div>
-<div data-role="page" id="page1">
+<div data-role="page" id="tourpage_home">
 <div id='header' data-role="header" data-theme='b' data-position="inline">
 	<h1 id='headerText'>Tour</h1>
 		<a id='default_tour_page_back_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse">
 		</a>   
 </div>
-<div id='map-canvas_holder'></div>    
+<div id='map-canvas_holder'>
+	<div id='map-canvas'></div>
+</div>    
 <div id='audioContainer'>
 	<audio controls autoplay>
 	<source class='audioFile' src='audio/tibbets.mp3' type="audio/mpeg">
@@ -127,7 +127,7 @@ Riverside was the first American city to take part in the International Sister C
 </div>
 </div>
 
-<div id='map-canvas' style='display:none'></div>
+
 
 
 </body>

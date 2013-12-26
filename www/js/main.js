@@ -74,6 +74,9 @@ var app = {
 		this.initialized = true;
     }
 };
+
+//jquery mobile events handling
+// ** need to mute audio on page change later **
 $(document).on("pagecreate", "#homepage", function () {
    if(!app.initialized){
 	app.initialize();
@@ -82,5 +85,7 @@ $(document).on("pagecreate", "#homepage", function () {
 $(document).on("pageshow", "#tourpage", function () {
 	app.routeTo(2);			//** next steps - make this load to tourmap **
 	$(window).resize();		//slider won't show until resize...
-	console.log(mapper.map);
+});
+$(document).on("pageshow", "#tourpage_home", function () {
+	mapper.resize();
 });
