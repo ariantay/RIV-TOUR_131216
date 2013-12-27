@@ -17,12 +17,19 @@
 <div data-role="page" id="page1">
 <div id='header' data-role="header" data-theme='b' data-position="inline">
 	<h1 id='headerText'>Tour</h1>
-	<a id='default_tour_page_back_button' class='button'onclick="location.href='index.html'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse">
-	</a>   
+	<a id='default_tour_page_back_button' class='button'onclick="location.href='index.html'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse"></a>
+	<a href="#popupBasic" data-rel="popup" id='default_tour_page_help_button' class='button' class="ui-btn-left" data-icon="info" data-theme='e' data-direction="reverse"></a>
+	
+	<div data-role="popup" id="popupBasic" data-theme="e" data-position-to="window" class="ui-content">
+		<a data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+		<p>Please make your way to the nearest statue.<p>
+	</div>
+	   
 </div>
 <div id='map-canvas_holder'>
 	<div id="map-canvas"></div>
-</div>    <div id='audioContainer'>
+</div>    
+<div id='audioContainer'>
 	<audio controls autoplay>
 	<source class='audioFile' src='audio/tibbets.mp3' type="audio/mpeg">
 	Your browser does not support the audio element.
