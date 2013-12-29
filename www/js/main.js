@@ -9,7 +9,7 @@ var app = {
 		}else{
 			var statue = app.store.statues[statueID];
 			// ** debugging marker on click issue **
-			console.log(statueID +" "+ statue.name);
+			console.log("Navigating to:  " + statueID + " - " + statue.name);
 			$('#headerText').html(statue.name);
 			$('#statue_text').html(statue.info);
 			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
@@ -30,13 +30,14 @@ var app = {
 		app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
+		console.log("calling on success");
 		var el = $(document.createElement('div'));
 		$(el).attr('id', 'temp');
 		for (var i=0; i < this.numStatues; i++) {
 			var statue = this.store.statues[i];
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
 			var htmlString = 'id_' + statue.id + ' is ' + Math.floor(distance) + ' feet away<br/>';
-			el.append(htmlString);
+			//el.append(htmlString);
 		}
 		var el2 = $("<div/>");
 		$(el2).append(el);
