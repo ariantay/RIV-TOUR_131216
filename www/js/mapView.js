@@ -36,20 +36,7 @@ var mapper = {
 		google.maps.event.addListener(marker, 'click', function() {
 			app.routeTo(marker.index);
 		});
-		for (var i=0; i < app.numStatues; i++) {
-		/*
-			var statue = app.store.statues[i];
-			//** the same event handler is being binded to all the markers ** fix later
-			marker = new google.maps.Marker({
-				position: new google.maps.LatLng(statue.lat,statue.lon),
-				map: this.map,
-				title:statue.name,
-				index: statue.id
-			});
-			google.maps.event.addListener(marker, 'click', function() {
-				app.routeTo(marker.index);
-			});	
-		*/	
+		for (var i=0; i < app.numStatues; i++) {	
 			mapper.createMarker(app.store.statues[i]);
 		}		
 		this.attached = false;

@@ -23,6 +23,7 @@ var app = {
 				animation: "slide",
 				controlNav: false
 		});
+		$.mobile.changePage("#tourpage");
 	},
 	startTracking: function() {
 		var options = {enableHighAccuracy: true};
@@ -76,7 +77,6 @@ var app = {
 		this.initialized = true;
     }
 };
-
 //jquery mobile events handling
 // ** need to mute audio on page change later **
 $(document).on("pagecreate", "#homepage", function () {
@@ -85,7 +85,6 @@ $(document).on("pagecreate", "#homepage", function () {
    }
 });	
 $(document).on("pageshow", "#tourpage", function () {
-	app.routeTo(2);			//** next steps - make this load to tourmap **
 	$(window).resize();		//slider won't show until resize...
 });
 $(document).on("pageshow", "#tourpage_home", function () {
