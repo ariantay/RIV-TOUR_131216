@@ -41,7 +41,7 @@ var app = {
 		}
 		var el2 = $("<div/>");
 		$(el2).append(el);
-		$('#statue_text').html(el);
+		//$('#statue_text').html(el);
 	},
 	onError: function (error) {
 		alert('code: '    + error.code    + '\n' +
@@ -65,7 +65,7 @@ var app = {
 	},    
     initialize: function() {
 		//this.statueID = 0;	// **not needed, explicitly call destination **
-		this.numStatues = 4;
+		this.numStatues = 5;
 		this.functionRunning = false;
 		this.counter = 0;
 		var watchID = app.startTracking();
