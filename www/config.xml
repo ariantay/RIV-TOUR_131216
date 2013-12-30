@@ -8,4 +8,10 @@
         Riverside IT
     </author>
     <content src="index.html" />
+    
+    <access origin="*.googleapis.com/*"/>
+	<access origin="*.gstatic.com/*"/>
+	<access origin="*.google.com/*"/>
+	<access origin="*.googleusercontent.com/*"/>
+
 </widget>
