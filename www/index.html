@@ -10,28 +10,35 @@
 	<link href="css/jquery.mobile-1.3.2.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="css/styles.css" rel="stylesheet">
+	<!--SCRIPT IMPORTS-->
+	<script src="phonegap.js"></script>
+	<script src="lib/jquery-1.10.2.min.js"></script>
+	<script src="lib/jquery.mobile-1.3.2.min.js"></script>
+	<script src="lib/jquery.flexslider.js"></script>
+	<script src="js/storage/memory-store.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script src="js/mapView.js"></script>
+	<script src="js/main.js"></script>
 </head>
 
 <body>
 
-<!-- Home -->
-<!-- Home -->
+
+<!--HOME PAGE-->
 <div data-role="page" id="homepage">
-    <div id="header" data-theme="b" data-role="header" class="header">
-        <h3>
-            City of Riverside Tour Guide
-        </h3>
-    </div>
-    <div data-role="content">
+	<div id="header" data-theme="b" data-role="header" class="header">
+		<h3>City of Riverside Tour Guide</h3>
+	</div>
+	<div data-role="content">
         <div id="home_navigation" data-role="navbar" data-iconpos="top" class="home_navigation">
             <ul>
                 <li>
-                    <a onclick="location.href='tourPage.html'"data-transition="fade" data-theme="e" data-icon="star">
+                    <a onclick="location.href='#tourpage_home'"data-transition="fade" data-theme="e" data-icon="star">
                         Begin Tour
                     </a>
                 </li>
                 <li>
-                    <a onclick="location.href='locationList.html'" data-transition="fade" data-theme="e" data-icon="bars">
+                    <a onclick="location.href='locationlist.html'" data-transition="fade" data-theme="e" data-icon="bars">
                         Statue List
                     </a>
                 </li>
@@ -43,36 +50,98 @@
             </ul>
         </div>
     </div>
- 
  	<div id="home_text_container">
-    	<p id="home_text" class="paragraph_display" style="text-indent: 37px">
+		<div id='home_text' class="paragraph_display" >
+    	<p style="text-indent: 37px">
 			International Spirit of Riverside 
 		</p>
-		
-
-		<p id="home_text" class="paragraph_display" style="text-indent: 20px">
+		<p  style="text-indent: 20px">
 			Riverside has long maintained a spirit of Internationalism and recognition of its multicultural history.  Going back to Frank Miller, the founder of the Mission Inn, Riverside has hosted dignitaries from countries all over the world and provided leadership on an International scale.  Riverside’s multiculturism has existed for nearly 150 years with large segments of various cultures within its population going back to the 1870s.  For example the Mission Inn hosted Japanese, Russian and European dignitaries, national and important state politicians and celebrities, such as several US presidents, Prince Kaya of Japan, Prince Gustav of Sweden, Booker T. Washington, John Muir, and Amelia Earhart.  The World Affairs Council was started in Riverside at the Mission Inn (and was once attended by John F. Kennedy here) and other international peace and social conferences have been hosted here.
 		</p>
-
-		<p id="home_text" class="paragraph_display" style="text-indent: 20px">
+		<p  style="text-indent: 20px">
 			Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.
 		</p>
-	<div>
+		</div>
+	</div>
+</div>
 
+<!--TOUR PAGE-->
+<div data-role="page" id="tourpage">
+	<div id='header' data-role="header" data-theme='b' data-position="inline">
+		<h1 id='headerText'>Tour</h1>
+			<a id='tour_page_back_button' class='button' onclick="location.href='#tourpage_home'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse">
+			</a>  
+	</div>
 	
+	<div id='slideSize' class='sizeControl'>
+		<div class="flexslider">
+			<ul class="slides">
+				<li>
+					<img class='image_1' src="img/tibbets_1.jpg" />
+				</li>
+				<li>
+					<img class='image_2' src="img/tibbets_2.jpg" />
+				</li>
+				<li>
+					<img class='image_3' src="img/tibbets_3.jpg" />
+				</li>
+				<li>
+					<img class='image_4' src="img/tibbets_4.jpg" />
+				</li>
+				<li>
+					<img class='image_5' src="img/tibbets_5.jpg" />
+				</li>
+			</ul>
+		</div>
+	</div>	
+	
+	<div id='audioContainer'>
+		<audio controls <!--autoplay-->>
+			<source class='audioFile' src='audio/tibbets.mp3' type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+	</div>
+
+	<div id='textContainer'>
+		<div id='statue_text' class='paragraph_display'>
+			International Spirit of Riverside 
+
+			Riverside has long maintained a spirit of Internationalism and recognition of its multicultural history.  Going back to Frank Miller, the founder of the Mission Inn, Riverside has hosted dignitaries from countries all over the world and provided leadership on an International scale.  Riverside’s multiculturism has existed for nearly 150 years with large segments of various cultures within its population going back to the 1870s.  For example the Mission Inn hosted Japanese, Russian and European dignitaries, national and important state politicians and celebrities, such as several US presidents, Prince Kaya of Japan, Prince Gustav of Sweden, Booker T. Washington, John Muir, and Amelia Earhart.  The World Affairs Council was started in Riverside at the Mission Inn (and was once attended by John F. Kennedy here) and other international peace and social conferences have been hosted here.
+
+			Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.
+		</div>
+	</div>
+</div>
+
+<!--TOUR PAGE HOME-->
+<div data-role="page" id="tourpage_home">
+	<div id='header' data-role="header" data-theme='b' data-position="inline">
+		<h1 id='headerText'>Tour</h1>
+			<a id='default_tour_page_back_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse"></a> 
+			<a href="#popupBasic" data-rel="popup" id='default_tour_page_help_button' class='button' class="ui-btn-left" data-icon="info" data-theme='e' data-direction="reverse"></a>
+	
+			<div data-role="popup" id="popupBasic" data-theme="e" data-position-to="window" class="ui-content">
+				<a data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				<p>Please make your way to the nearest statue.<p>
+			</div>
+	</div>
+	
+	<div id='map-canvas_holder'>
+		<div id='map-canvas'></div>
+	</div>  
+	  
+	<div id='audioContainer'>
+		<audio controls <!--autoplay-->>
+			<source class='audioFile' src='audio/tibbets.mp3' type="audio/mpeg">
+				Your browser does not support the audio element.
+		</audio>
+	</div>
+
+	<div data-theme="a" data-role="footer" data-position="fixed">
+	</div>
 </div>
 
 
-
-
-<!--SCRIPT IMPORTS-->
-<script src="phonegap.js"></script>
-<script src="lib/jquery-1.10.2.min.js"></script>
-<script src="lib/jquery.mobile-1.3.2.min.js"></script>
-<!--<script src="lib/jquery.flexslider.js"></script>
-<script src="js/storage/memory-store.js"></script>
-<script src="js/mapView.js"></script>
-<script src="js/main.js"></script>-->
 </body>
 </html>
 
