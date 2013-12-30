@@ -46,6 +46,7 @@ min-height:100%;
 	text-align: left;
 }
 #map-canvas{
+	top: 15px;
 	height: 100%;
 	width: 100%;
 }
@@ -94,6 +95,15 @@ min-height:100%;
 }
 
 #audioContainer{
+	display: table;
+    margin: 0 auto;
+	text-align: center;
+	width: 250px;
+	height: 50px;
+	position: relative;
+}
+#tourhome_audioContainer{
+	top: 15px;
 	display: table;
     margin: 0 auto;
 	text-align: center;
