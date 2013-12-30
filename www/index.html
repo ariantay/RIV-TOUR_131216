@@ -43,7 +43,7 @@
                     </a>
                 </li>
                 <li>
-                    <a onclick="location.href='options.html'" data-transition="fade" data-theme="e" data-icon="gear">
+                    <a onclick="location.href='#settings'" data-transition="fade" data-theme="e" data-icon="gear">
                         Settings
                     </a>
                 </li>
@@ -139,6 +139,30 @@
 
 	<div data-theme="a" data-role="footer" data-position="fixed">
 	</div>
+</div>
+
+
+<!--Settings Page-->
+<div data-role="page" id="settings">
+	<div id='header' data-role="header" data-theme='b' data-position="inline">
+		<h1 id='headerText'>Settings</h1>
+        	<a id='settings_home_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="home" data-theme='e' data-direction="reverse"></a>
+    </div>
+	
+	<form action="">
+		<div data-role="fieldcontain">
+    		<fieldset data-role="controlgroup">
+    			<legend><div><a data-theme="e">Language</a></div></legend>
+         		<input type="radio" name="radio-choice-2" id="radio-choice-21" value="englis" checked="checked" />
+         		<label for="radio-choice-21">English</label>
+
+         		<input type="radio" name="radio-choice-2" id="radio-choice-22" value="spanish"  />
+         		<label for="radio-choice-22">Spanish</label>
+         	
+    		</fieldset>
+    		<div><button id="settings_save" class="button" onclick="location.href='options.html'" data-theme="e"> Save</button><br><br></div>
+		</div>
+	</form>
 </div>
 
 
