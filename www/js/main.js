@@ -65,7 +65,7 @@ var app = {
 	},    
     initialize: function() {
 		//this.statueID = 0;	// **not needed, explicitly call destination **
-		this.numStatues = 5;
+		this.numStatues = 6;
 		this.functionRunning = false;
 		this.counter = 0;
 		var watchID = app.startTracking();
