@@ -8,7 +8,7 @@
         Riverside IT
     </author>
     <content src="index.html" />
-    
+    <preference name="fullscreen" value="true" />
     <access origin="*.googleapis.com/*"/>
 	<access origin="*.gstatic.com/*"/>
 	<access origin="*.google.com/*"/>
