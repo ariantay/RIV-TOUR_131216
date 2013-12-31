@@ -35,9 +35,9 @@ var app = {
         if (cur_page == 1)
         {
 		console.log("calling on success");
-        //alert("fjfjfjfjf");
-		var el = $(document.createElement('div'));
-		$(el).attr('id', 'temp');
+        
+		//var el = $(document.createElement('div'));
+		//$(el).attr('id', 'temp');
 		for (var i=0; i < this.numStatues; i++) {
 			var statue = this.store.statues[i];
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
@@ -45,11 +45,17 @@ var app = {
 			//el.append(htmlString);
             if(distance <= statue.distance && cur_statue != statue.id)
             {
-                routeTo(statue.id);                
+                app.routeTo(statue.id);
             }
+            
+                
+                alert(distance);
+            
+            
 		}
-		var el2 = $("<div/>");
-		$(el2).append(el);
+alert("fjfjfjfjf");
+		//var el2 = $("<div/>");
+		//$(el2).append(el);
 		//$('#statue_text').html(el);
         }
 	},
