@@ -121,3 +121,10 @@ $(document).on("pageshow", "#tourpage_home", function () {
 	cur_page = 1;
 	cur_statue = -1;
 });
+//fix for ios 7 status bar
+function onDeviceReady() {
+    if (parseFloat(window.device.version) === 7.0) {
+          document.body.style.marginTop = "20px";
+    }
+} 
+document.addEventListener('deviceready', onDeviceReady, false);
