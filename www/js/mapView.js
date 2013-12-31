@@ -4,7 +4,7 @@ var mapper = {
 			google.maps.event.trigger(mapper.map, 'resize');
 			var tempCenter = new google.maps.LatLng(33.97801, -117.374814);
 			mapper.map.setCenter(tempCenter); 
-			mapper.map.setZoom(17);
+			mapper.map.setZoom(16);
 		}
 	},
 	createMarker: function(statue) {
