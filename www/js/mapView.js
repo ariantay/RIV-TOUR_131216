@@ -19,6 +19,16 @@ var mapper = {
 		});
 		return marker;
 	},
+	announcePosition: function(){
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(
+				function(position){alert (position);},
+				function(error){alert (error);},
+				{enableHighAccuracy: true,timeout: 5000,maximumAge: 0});
+		}else{
+			alert('no navigator');
+		}
+	},
     initialize: function() {
 		//create the map
 		this.mapOptions = {
@@ -33,8 +43,10 @@ var mapper = {
 			title:"You are here",
 			index: app.numStatues
 		});
+		//current position on click
 		google.maps.event.addListener(marker, 'click', function() {
-			app.routeTo(marker.index);
+			//app.routeTo(marker.index);
+			mapper.announcePosition();
 		});
 		for (var i=0; i < app.numStatues; i++) {	
 			mapper.createMarker(app.store.statues[i]);
