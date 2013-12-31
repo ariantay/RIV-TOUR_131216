@@ -9,9 +9,13 @@ var app = {
 		}else{
 			var statue = app.store.statues[statueID];
 			// ** debugging marker on click issue **
-			console.log("Navigating to:  " + statueID + " - " + statue.name);
 			$('#headerText').html(statue.name);
-			$('#statue_text').html(statue.info);
+			var language = $('input[name="radio-choice-2"]:checked').val();
+			if (language == 'english'){
+				$('#statue_text').html(statue.info.english);
+			}else{
+				$('#statue_text').html(statue.info.spanish);
+			}
 			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
@@ -20,40 +24,41 @@ var app = {
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
 		}
 		$('.flexslider').flexslider({
-				animation: "slide",
-				controlNav: false
+			animation: "slide",
+			controlNav: false
 		});
         cur_statue = statueID;
+		console.log("Navigating to:  " + statueID + " - " + statue.name);
+		console.log("cur_statue " + cur_statue);
+		console.log("current language: " + language);
 		$.mobile.changePage("#tourpage");
 	},
 	startTracking: function() {
-        //alert("ffaaaaaa");
-		var options = {enableHighAccuracy: true};
-		app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
+        //alert("calling startTracking");
+		var options = {
+			frequency : 5000,
+			maximumAge : 30000,
+			enableHighAccuracy : true
+		};
+		//app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
+		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
-        if (cur_page == 1)
-        {
-		console.log("calling on success");
-        
-		//var el = $(document.createElement('div'));
-		//$(el).attr('id', 'temp');
-		for (var i=0; i < this.numStatues; i++) {
+        if (cur_page == 1){
+			console.log("calling on success");			
+			//var el = $(document.createElement('div'));
+			//$(el).attr('id', 'temp');
+		for (var i=0; i<this.numStatues; i++) {
 			var statue = this.store.statues[i];
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
 			var htmlString = 'id_' + statue.id + ' is ' + Math.floor(distance) + ' feet away<br/>';
 			//el.append(htmlString);
-            if(distance <= statue.distance && cur_statue != statue.id)
-            {
+			alert("Statue: " + statue.id + ", Distance " + distance);
+            if(distance <= statue.distance && cur_statue != statue.id){
                 app.routeTo(statue.id);
             }
-            
-                
-                alert(distance);
-            
-            
 		}
-alert("fjfjfjfjf");
+		alert("End of onSuccess");
 		//var el2 = $("<div/>");
 		//$(el2).append(el);
 		//$('#statue_text').html(el);
@@ -84,7 +89,7 @@ alert("fjfjfjfjf");
 		this.numStatues = 6;
 		this.functionRunning = false;
 		this.counter = 0;
-		var watchID = app.startTracking();
+		//var watchID = app.startTracking();
         var self = this;
         this.detailsURL = /^#statues\/(\d{1,})/;
         this.registerEvents();
@@ -100,18 +105,28 @@ var cur_page = 0;  //used to determine if on tour pages or not
 //jquery mobile events handling
 // ** need to mute audio on page change later **
 $(document).on("pagecreate", "#homepage", function () {
-   if(!app.initialized){
-	app.initialize();
-   }
-               cur_page = 0;
-               cur_statue = -1;
+	if(!app.initialized){
+		watchID = app.startTracking();
+		app.initialize();	
+	}
+	cur_page = 0;
+	cur_statue = -1;
 });	
 $(document).on("pageshow", "#tourpage", function () {
 	$(window).resize();		//slider won't show until resize...
-               cur_page = 1;
+	cur_page = 1;
 });
 $(document).on("pageshow", "#tourpage_home", function () {
 	mapper.resize();
-               cur_page = 1;
-               cur_statue = -1;
+	cur_page = 1;
+	cur_statue = -1;
 });
+//fix for ios 7 status bar ** doesnt work leave for later
+/*
+function onDeviceReady() {
+    if (parseFloat(window.device.version) === 7.0) {
+          document.body.style.marginTop = "20px";
+    }
+} 
+document.addEventListener('deviceready', onDeviceReady, false);
+*/

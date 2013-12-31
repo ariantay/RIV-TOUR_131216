@@ -4,7 +4,7 @@ var mapper = {
 			google.maps.event.trigger(mapper.map, 'resize');
 			var tempCenter = new google.maps.LatLng(33.97801, -117.374814);
 			mapper.map.setCenter(tempCenter); 
-			mapper.map.setZoom(17);
+			mapper.map.setZoom(16);
 		}
 	},
 	createMarker: function(statue) {
@@ -18,6 +18,16 @@ var mapper = {
 			app.routeTo(marker.index);
 		});
 		return marker;
+	},
+	announcePosition: function(){
+		if (navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(
+				function(position){alert (position.coords.latitude + " " + position.coords.longitude);},
+				function(error){alert (error.code + " " + error.message);},
+				{enableHighAccuracy: true,timeout: 10000,maximumAge: 5000});
+		}else{
+			alert('no navigator');
+		}
 	},
     initialize: function() {
 		//create the map
@@ -33,8 +43,10 @@ var mapper = {
 			title:"You are here",
 			index: app.numStatues
 		});
+		//current position on click
 		google.maps.event.addListener(marker, 'click', function() {
-			app.routeTo(marker.index);
+			//app.routeTo(marker.index);
+			mapper.announcePosition();
 		});
 		for (var i=0; i < app.numStatues; i++) {	
 			mapper.createMarker(app.store.statues[i]);
