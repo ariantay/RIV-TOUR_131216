@@ -13,5 +13,4 @@
 	<access origin="*.gstatic.com/*"/>
 	<access origin="*.google.com/*"/>
 	<access origin="*.googleusercontent.com/*"/>
-
 </widget>
