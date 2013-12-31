@@ -22,9 +22,9 @@ var mapper = {
 	announcePosition: function(){
 		if (navigator.geolocation){
 			navigator.geolocation.getCurrentPosition(
-				function(position){alert (position);},
-				function(error){alert (error);},
-				{enableHighAccuracy: true,timeout: 5000,maximumAge: 0});
+				function(position){alert (position.coords.latitude + " " + position.coords.longitude);},
+				function(error){alert (error.code + " " + error.message);},
+				{enableHighAccuracy: true,timeout: 10000,maximumAge: 5000});
 		}else{
 			alert('no navigator');
 		}
