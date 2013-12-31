@@ -23,14 +23,19 @@ var app = {
 				animation: "slide",
 				controlNav: false
 		});
+        cur_statue = statueID;
 		$.mobile.changePage("#tourpage");
 	},
 	startTracking: function() {
+        //alert("ffaaaaaa");
 		var options = {enableHighAccuracy: true};
 		app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
+        if (cur_page == 1)
+        {
 		console.log("calling on success");
+        //alert("fjfjfjfjf");
 		var el = $(document.createElement('div'));
 		$(el).attr('id', 'temp');
 		for (var i=0; i < this.numStatues; i++) {
@@ -38,10 +43,15 @@ var app = {
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
 			var htmlString = 'id_' + statue.id + ' is ' + Math.floor(distance) + ' feet away<br/>';
 			//el.append(htmlString);
+            if(distance <= statue.distance && cur_statue != statue.id)
+            {
+                routeTo(statue.id);                
+            }
 		}
 		var el2 = $("<div/>");
 		$(el2).append(el);
 		//$('#statue_text').html(el);
+        }
 	},
 	onError: function (error) {
 		alert('code: '    + error.code    + '\n' +
@@ -78,16 +88,24 @@ var app = {
 		this.initialized = true;
     }
 };
+
+var cur_statue = -1;
+var cur_page = 0;  //used to determine if on tour pages or not
 //jquery mobile events handling
 // ** need to mute audio on page change later **
 $(document).on("pagecreate", "#homepage", function () {
    if(!app.initialized){
 	app.initialize();
    }
+               cur_page = 0;
+               cur_statue = -1;
 });	
 $(document).on("pageshow", "#tourpage", function () {
 	$(window).resize();		//slider won't show until resize...
+               cur_page = 1;
 });
 $(document).on("pageshow", "#tourpage_home", function () {
 	mapper.resize();
+               cur_page = 1;
+               cur_statue = -1;
 });
