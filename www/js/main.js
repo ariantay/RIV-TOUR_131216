@@ -9,9 +9,13 @@ var app = {
 		}else{
 			var statue = app.store.statues[statueID];
 			// ** debugging marker on click issue **
-			console.log("Navigating to:  " + statueID + " - " + statue.name);
 			$('#headerText').html(statue.name);
-			$('#statue_text').html(statue.info);
+			var language = $('input[name="radio-choice-2"]:checked').val();
+			if (language == 'english'){
+				$('#statue_text').html(statue.info.english);
+			}else{
+				$('#statue_text').html(statue.info.spanish);
+			}
 			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
@@ -24,8 +28,9 @@ var app = {
 			controlNav: false
 		});
         cur_statue = statueID;
-		console.log("Changing to " + cur_statue;
-		console.log(statue);
+		console.log("Navigating to:  " + statueID + " - " + statue.name);
+		console.log("cur_statue " + cur_statue);
+		console.log("current language: " + language);
 		$.mobile.changePage("#tourpage");
 	},
 	startTracking: function() {
