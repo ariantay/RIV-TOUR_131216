@@ -36,7 +36,7 @@ var app = {
 	startTracking: function() {
         //alert("calling startTracking");
 		var options = {
-			frequency : 5000,
+			frequency : 3000,
 			maximumAge : 30000,
 			enableHighAccuracy : true
 		};
@@ -48,8 +48,8 @@ var app = {
 			console.log("calling on success");			
 			//var el = $(document.createElement('div'));
 			//$(el).attr('id', 'temp');
-		for (var i=0; i<this.numStatues; i++) {
-			var statue = this.store.statues[i];
+		for (var i=0; i<app.numStatues; i++) {
+			var statue = app.store.statues[i];
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
 			var htmlString = 'id_' + statue.id + ' is ' + Math.floor(distance) + ' feet away<br/>';
 			//el.append(htmlString);
