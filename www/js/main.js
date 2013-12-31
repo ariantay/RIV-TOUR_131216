@@ -20,40 +20,39 @@ var app = {
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
 		}
 		$('.flexslider').flexslider({
-				animation: "slide",
-				controlNav: false
+			animation: "slide",
+			controlNav: false
 		});
         cur_statue = statueID;
+		console.log("Changing to " + cur_statue;
+		console.log(statue);
 		$.mobile.changePage("#tourpage");
 	},
 	startTracking: function() {
-        //alert("ffaaaaaa");
-		var options = {enableHighAccuracy: true};
+        //alert("calling startTracking");
+		var options = {
+			frequency : 5000,
+			maximumAge : 30000,
+			enableHighAccuracy : true
+		};
 		app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
-        if (cur_page == 1)
-        {
-		console.log("calling on success");
-        
-		//var el = $(document.createElement('div'));
-		//$(el).attr('id', 'temp');
-		for (var i=0; i < this.numStatues; i++) {
+        if (cur_page == 1){
+			console.log("calling on success");			
+			//var el = $(document.createElement('div'));
+			//$(el).attr('id', 'temp');
+		for (var i=0; i<this.numStatues; i++) {
 			var statue = this.store.statues[i];
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
 			var htmlString = 'id_' + statue.id + ' is ' + Math.floor(distance) + ' feet away<br/>';
 			//el.append(htmlString);
-            if(distance <= statue.distance && cur_statue != statue.id)
-            {
+			alert("Statue: " + statue.id + ", Distance " + distance);
+            if(distance <= statue.distance && cur_statue != statue.id){
                 app.routeTo(statue.id);
             }
-            
-                
-                alert(distance);
-            
-            
 		}
-alert("fjfjfjfjf");
+		alert("End of onSuccess");
 		//var el2 = $("<div/>");
 		//$(el2).append(el);
 		//$('#statue_text').html(el);
@@ -100,18 +99,18 @@ var cur_page = 0;  //used to determine if on tour pages or not
 //jquery mobile events handling
 // ** need to mute audio on page change later **
 $(document).on("pagecreate", "#homepage", function () {
-   if(!app.initialized){
-	app.initialize();
-   }
-               cur_page = 0;
-               cur_statue = -1;
+	if(!app.initialized){
+		app.initialize();
+	}
+	cur_page = 0;
+	cur_statue = -1;
 });	
 $(document).on("pageshow", "#tourpage", function () {
 	$(window).resize();		//slider won't show until resize...
-               cur_page = 1;
+	cur_page = 1;
 });
 $(document).on("pageshow", "#tourpage_home", function () {
 	mapper.resize();
-               cur_page = 1;
-               cur_statue = -1;
+	cur_page = 1;
+	cur_statue = -1;
 });
