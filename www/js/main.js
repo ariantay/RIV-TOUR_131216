@@ -40,7 +40,8 @@ var app = {
 			maximumAge : 30000,
 			enableHighAccuracy : true
 		};
-		app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
+		//app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
+		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
         if (cur_page == 1){
@@ -88,7 +89,7 @@ var app = {
 		this.numStatues = 6;
 		this.functionRunning = false;
 		this.counter = 0;
-		var watchID = app.startTracking();
+		//var watchID = app.startTracking();
         var self = this;
         this.detailsURL = /^#statues\/(\d{1,})/;
         this.registerEvents();
@@ -105,7 +106,8 @@ var cur_page = 0;  //used to determine if on tour pages or not
 // ** need to mute audio on page change later **
 $(document).on("pagecreate", "#homepage", function () {
 	if(!app.initialized){
-		app.initialize();
+		watchID = app.startTracking();
+		app.initialize();	
 	}
 	cur_page = 0;
 	cur_statue = -1;
