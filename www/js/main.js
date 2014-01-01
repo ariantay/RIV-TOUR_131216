@@ -36,7 +36,7 @@ var app = {
 	startTracking: function() {
         //alert("calling startTracking");
 		var options = {
-			frequency : 3000,
+			frequency : 4000,
 			maximumAge : 30000,
 			enableHighAccuracy : true
 		};
@@ -53,12 +53,13 @@ var app = {
 			var distance = app.getDistanceFromLatLonInFeet(position.coords.latitude,position.coords.longitude,statue.lat,statue.lon);
 			var htmlString = 'id_' + statue.id + ' is ' + Math.floor(distance) + ' feet away<br/>';
 			//el.append(htmlString);
-			alert("Statue: " + statue.id + ", Distance " + distance);
+			//alert("Statue: " + statue.id + ", Distance " + distance);
             if(distance <= statue.distance && cur_statue != statue.id){
                 app.routeTo(statue.id);
+                return;
             }
 		}
-		alert("End of onSuccess");
+		//alert("End of onSuccess");
 		//var el2 = $("<div/>");
 		//$(el2).append(el);
 		//$('#statue_text').html(el);
