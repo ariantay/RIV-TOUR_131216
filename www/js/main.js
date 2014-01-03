@@ -33,6 +33,26 @@ var app = {
 		console.log("current language: " + language);
 		$.mobile.changePage("#tourpage");
 	},
+	createStatuelist: function() {
+		//append list
+		if (!app.statuelistCreated){
+			var html = '';
+			for (var i=0; i<app.numStatues; i++) {
+				var statue = app.store.statues[i];
+				html += '<li>';
+				html += '<img src=img/' + statue.urlstring + '_1.jpg>';
+				html += '<h3>' + statue.name + '</h3>';
+				html += '<p style="font-size: 0.7em">' + statue.lon + ", " + statue.lat + '</p>';
+				html += '</li>';
+			}
+			$('#statuelist_holder').append(html);
+		}
+		//add onclick 
+		$('#statuelist_holder').each(function(i) {
+			//this.onClick(app.showDetails(i));
+		});
+		app.statuelistCreated = true;
+	},
 	startTracking: function() {
         //alert("calling startTracking");
 		var options = {
@@ -101,6 +121,7 @@ var app = {
            window.mapper.initialize();
         });
 		this.initialized = true;
+		this.statuelistCreated = false;
     }
 };
 
@@ -126,6 +147,16 @@ $(document).on("pageshow", "#tourpage_home", function () {
 	cur_page = 1;
                cur_statue = -1;
                lock = 0;
+});
+$(document).on("pageshow", "#settings", function () {
+	mapper.resize();
+	cur_page = 1;
+	cur_statue = -1;
+});
+$(document).on("pagecreate", "#statuelist", function () {
+	app.createStatuelist();
+	cur_page = 0;
+	cur_statue = -1;
 });
 //fix for ios 7 status bar ** doesnt work leave for later
 /*

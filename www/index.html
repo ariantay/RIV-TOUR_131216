@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a onclick="location.href='locationlist.html'" data-transition="fade" data-theme="e" data-icon="bars">
+                    <a onclick="location.href='#statuelist'" data-transition="fade" data-theme="e" data-icon="bars">
                         Statue List
                     </a>
                 </li>
@@ -165,7 +165,38 @@
 	</form>
 </div>
 
+<!--STATUE LIST PAGE-->
+<div data-role="page" id="statuelist">
+
+	<div id='header' data-role="header" data-theme='b' data-position="inline">
+		<h1 id='headerText'>Statue List</h1>
+		<a id='tour_page_back_button' class='button' onclick="location.href='#tourpage_home'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse">
+		</a>  
+	</div>
+	
+	<div data-role="content">
+		<ul data-role="listview" id='statuelist_holder'>		
+		</ul>
+	</div>
+
+</div><!-- Page End -->
 
 </body>
 </html>
 
+<!--
+			<li >              
+			<a href="downtown.html" data-ajax="false">
+			<img  src="../images/shop/retail-downtown.jpg">            
+			<h3>Main Street at Riverside</h3>
+			<p style='font-size: 0.7em'>Main Street between 5th Street and University</p>                
+			</a>            
+			</li>
+			<li>              
+			<a href="arlingtonpartnership.html" data-ajax="false">
+			<img  src="../images/shop/retail-arlingtonpartnership.jpg">            
+			<h3>Arlington Business Improvement District</h3>
+			<p style='font-size: 0.6em'>Van Buren from Lincoln to Arlington  / Magnolia from Jackson to Tyler</p>                
+			</a>            
+			</li>  
+-->			
