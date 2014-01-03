@@ -33,7 +33,7 @@ var app = {
 	},
 	showDetails: function(statueID) {
 		var statue = app.store.statues[statueID];
-		$('#statuedetails_thumb').attr('src','img/'+statue.urlstring+'_1.jpg');
+		$('#statuedetails_thumb').attr('src','img/'+statue.urlstring+'_thumb.jpg');
 		$('#statuedetails_thumbtext h2').html(statue.name);
 		$('#statuedetails_thumbtext p').html(statue.lon + ' ' + statue.lat);
 		
