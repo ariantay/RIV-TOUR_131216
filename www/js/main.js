@@ -44,7 +44,8 @@ var app = {
 		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
-        if (cur_page == 1){
+        if (cur_page == 1 && lock == 0){
+            lock = 1;
 			console.log("calling on success");			
 			//var el = $(document.createElement('div'));
 			//$(el).attr('id', 'temp');
@@ -62,7 +63,8 @@ var app = {
 		//alert("End of onSuccess");
 		//var el2 = $("<div/>");
 		//$(el2).append(el);
-		//$('#statue_text').html(el);
+        //$('#statue_text').html(el);
+            lock = 0;
         }
 	},
 	onError: function (error) {
@@ -90,6 +92,7 @@ var app = {
 		this.numStatues = 6;
 		this.functionRunning = false;
 		this.counter = 0;
+        this.lock = 0;
 		//var watchID = app.startTracking();
         var self = this;
         this.detailsURL = /^#statues\/(\d{1,})/;
@@ -116,11 +119,13 @@ $(document).on("pagecreate", "#homepage", function () {
 $(document).on("pageshow", "#tourpage", function () {
 	$(window).resize();		//slider won't show until resize...
 	cur_page = 1;
+               lock = 0;
 });
 $(document).on("pageshow", "#tourpage_home", function () {
 	mapper.resize();
 	cur_page = 1;
-	cur_statue = -1;
+               cur_statue = -1;
+               lock = 0;
 });
 //fix for ios 7 status bar ** doesnt work leave for later
 /*
