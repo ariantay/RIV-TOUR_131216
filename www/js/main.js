@@ -5,10 +5,8 @@ var app = {
 	routeTo: function(statueID) {
 		if (statueID === app.numStatues){
 			$('#headerText').html('City of Riverside');
-			// ** next steps - implement load to tour map **
 		}else{
 			var statue = app.store.statues[statueID];
-			// ** debugging marker on click issue **
 			$('#headerText').html(statue.name);
 			var language = $('input[name="radio-choice-2"]:checked').val();
 			if (language == 'english'){
@@ -33,6 +31,22 @@ var app = {
 		console.log("current language: " + language);
 		$.mobile.changePage("#tourpage");
 	},
+	showDetails: function(statueID) {
+		var statue = app.store.statues[statueID];
+		$('#statuedetails_thumb').attr('src','img/'+statue.urlstring+'_1.jpg');
+		$('#statuedetails_thumbtext h2').html(statue.name);
+		$('#statuedetails_thumbtext p').html(statue.lon + ' ' + statue.lat);
+		
+		var language = $('input[name="radio-choice-2"]:checked').val();
+		if (language == 'english'){
+			$('#statuedetails_detailstext p').html(statue.info.english);
+		}else{
+			$('#statuedetails_detailstext p').html(statue.info.spanish);
+		}
+		$('#statuedetails_address p').html(statue.street);
+		
+		$.mobile.changePage("#statuedetails");
+	},
 	createStatuelist: function() {
 		//append list
 		if (!app.statuelistCreated){
@@ -50,11 +64,12 @@ var app = {
 		//add onclick 
 		$('#statuelist_holder li').each(function(i) {
 			$(this).click(function(){
-				alert(i);
+				//link to details page
+				app.showDetails(i);
 			});
 		});
 		app.statuelistCreated = true;
-	},
+	},	
 	startTracking: function() {
         //alert("calling startTracking");
 		var options = {

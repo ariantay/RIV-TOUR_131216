@@ -116,7 +116,7 @@
 <!--TOUR PAGE HOME-->
 <div data-role="page" id="tourpage_home">
 	<div id='header' data-role="header" data-theme='b' data-position="inline">
-		<h1 id='headerText'>Tour</h1>
+		<h1>Tour</h1>
 			<a id='default_tour_page_back_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse"></a> 
 			<a href="#popupBasic" data-rel="popup" id='default_tour_page_help_button' class='button' class="ui-btn-left" data-icon="info" data-theme='e' data-direction="reverse"></a>
 	
@@ -145,7 +145,7 @@
 <!--SETTINGS PAGE-->
 <div data-role="page" id="settings">
 	<div id='header' data-role="header" data-theme='b' data-position="inline">
-		<h1 id='headerText'>Settings</h1>
+		<h1>Settings</h1>
         	<a id='settings_home_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="home" data-theme='e' data-direction="reverse"></a>
     </div>
 	
@@ -168,7 +168,7 @@
 <!--STATUE LIST PAGE-->
 <div data-role="page" id="statuelist">
 	<div id='header' data-role="header" data-theme='b' data-position="inline">
-		<h1 id='headerText'>Statue List</h1>
+		<h1>Statue List</h1>
 		<a id='tour_page_back_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse"></a>  
 	</div>
 	<div data-role="content">
@@ -179,19 +179,46 @@
 <!--STATUE DETAILS PAGE-->
 <div data-role="page" id="statuedetails">
 	<div id='header' data-role="header" data-theme='b' data-position="inline">
-		<h1 id='headerText'>Statue List</h1>
+		<h1>Statue Details</h1>
 		<a id='tour_page_back_button' class='button' onclick="location.href='#statuelist'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse"></a>  
 	</div>
 	<div data-role="content">
-		<ul data-role="listview" id='statuelist_holder'></ul>
+		<table width="100%">
+		<tr>
+			<td width="1%" style="vertical-align: top; padding: 6px">
+				<img id='statuedetails_thumb' src="">      				
+			</td>
+			
+			<td style="vertical-align: top">
+				<div id='statuedetails_thumbtext'>
+				<h2 style="margin-top: 0px"></h2>
+				<p><strong></strong></p>
+				</div>
+			</td>				
+		</tr>		      
+		</table>
+		
+		<div data-role="collapsible" data-theme="a" data-content-theme="a" data-collapsed="false">
+			<div id='statuedetails_detailstext'>
+				<h3>Detail</h3>           
+				<p></p>   
+			</div>
+		</div>
+ 				
+		<div data-role="collapsible" data-theme="a" data-content-theme="a" data-collapsed="false">
+			<div id='statuedetails_address'>
+				<h3>Address</h3>
+				<p></p>
+				<a href="#tourpage_home" id="mapit"></a>
+			</div>
+		</div>
 	</div>
 </div>
 
 </body>
 </html>
 
-<!--
-			<li >              
+<!--           
 			<a href="downtown.html" data-ajax="false">
 			<img  src="../images/shop/retail-downtown.jpg">            
 			<h3>Main Street at Riverside</h3>
