@@ -48,8 +48,10 @@ var app = {
 			$('#statuelist_holder').append(html);
 		}
 		//add onclick 
-		$('#statuelist_holder').each(function(i) {
-			//this.onClick(app.showDetails(i));
+		$('#statuelist_holder li').each(function(i) {
+			$(this).click(function(){
+				alert(i);
+			});
 		});
 		app.statuelistCreated = true;
 	},
