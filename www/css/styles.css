@@ -30,7 +30,7 @@ height:95%;
 min-height:95%;
 }
 */
-#homepage, #tourpage_home, #tourpage{
+#homepage, #tourpage_home, #tourpage, #statuelist, #statuedetails{
 height:100%;
 min-height:100%;
   background: url('../img/riverside_home.jpg') no-repeat center center fixed; 

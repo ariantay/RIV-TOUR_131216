@@ -175,6 +175,10 @@ $(document).on("pagecreate", "#statuelist", function () {
 	cur_page = 0;
 	cur_statue = -1;
 });
+$(document).on("pagecreate", "#statuedetails", function () {
+	cur_page = 0;
+	cur_statue = -1;
+});
 //fix for ios 7 status bar ** doesnt work leave for later
 /*
 function onDeviceReady() {
