@@ -37,14 +37,14 @@ var mapper = {
 		};
 		this.map = new google.maps.Map(document.getElementById('map-canvas'),this.mapOptions); 
 		//define markers
-		var marker = new google.maps.Marker({
+		this.marker = new google.maps.Marker({
 			position: new google.maps.LatLng(33.97801, -117.374814),
 			map: this.map,
 			title:"You are here",
 			index: app.numStatues
 		});
 		//current position on click
-		google.maps.event.addListener(marker, 'click', function() {
+		google.maps.event.addListener(mapper.marker, 'click', function() {
 			//app.routeTo(marker.index);
 			mapper.announcePosition();
 		});

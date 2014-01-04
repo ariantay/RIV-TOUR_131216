@@ -81,6 +81,8 @@ var app = {
 		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
+		var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		mapper.marker.setPosition(latlng);
         if (cur_page == 1 && lock == 0){
             lock = 1;
 			console.log("calling on success");			
@@ -148,8 +150,8 @@ var cur_page = 0;  //used to determine if on tour pages or not
 // ** need to mute audio on page change later **
 $(document).on("pagecreate", "#homepage", function () {
 	if(!app.initialized){
-		watchID = app.startTracking();
 		app.initialize();	
+		watchID = app.startTracking();
 	}
 	cur_page = 0;
 	cur_statue = -1;
