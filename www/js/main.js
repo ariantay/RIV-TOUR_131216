@@ -81,8 +81,10 @@ var app = {
 		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
-		var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-		mapper.marker.setPosition(latlng);
+		if (mapper){
+			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			mapper.marker.setPosition(latlng);
+		}	
         if (cur_page == 1 && lock == 0){
             lock = 1;
 			console.log("calling on success");			
