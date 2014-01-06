@@ -86,7 +86,7 @@ var app = {
 			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			mapper.marker.setPosition(latlng);
 			mapper.circle.setCenter(latlng);
-			mapper.circle.setRadius(position.coords.accuracy);
+			//mapper.circle.setRadius(position.coords.accuracy);
 		}	
         if (cur_page == 1 && lock == 0){
             lock = 1;
