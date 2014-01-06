@@ -17,7 +17,7 @@ var mapper = {
 		google.maps.event.addListener(marker, 'click', function() {
 			app.routeTo(marker.index);
 		});
-		return marker;
+		//return marker;
 	},
 	announcePosition: function(){
 		if (navigator.geolocation){
