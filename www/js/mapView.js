@@ -36,12 +36,13 @@ var mapper = {
 			center: new google.maps.LatLng(33.97801, -117.374814)
 		};
 		this.map = new google.maps.Map(document.getElementById('map-canvas'),this.mapOptions); 
-		//define markers
+		//define curren position icon
 		var pinImage = new google.maps.MarkerImage(
 			'img/nav_plain_blue.png',
 			null,null,null,
 			new google.maps.Size(16, 16)
 		);
+		//define current position marker
 		this.marker = new google.maps.Marker({
 			position: new google.maps.LatLng(33.97801, -117.374814),
 			map: this.map,
@@ -49,6 +50,18 @@ var mapper = {
 			index: app.numStatues,
 			icon: pinImage
 		});
+		//define current position radius
+		var options = {
+        strokeColor: '#79BEDB',
+        strokeOpacity: .8,
+        strokeWeight: .8,
+        fillColor: '#79BEDB',
+        fillOpacity: 0.4,
+        map: mapper.map,
+        center: new google.maps.LatLng(33.97801, -117.374814),
+        radius: 60
+		};
+		this.circle = new google.maps.Circle(options);
 		//current position on click
 		google.maps.event.addListener(mapper.marker, 'click', function() {
 			//app.routeTo(marker.index);
