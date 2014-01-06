@@ -78,7 +78,8 @@ var app = {
 			enableHighAccuracy : true
 		};
 		//app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
-		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
+		wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
+        
 	},
 	onSuccess: function (position) {
 		//update our map marker and radius
@@ -114,6 +115,8 @@ var app = {
 	onError: function (error) {
 		alert('code: '    + error.code    + '\n' +
 			  'message: ' + error.message + '\n');
+        navigator.geolocation.clearWatch(wid);
+        wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	getDistanceFromLatLonInFeet: function (lat1,lon1,lat2,lon2) {
 		var R = 6371; // Radius of the earth in km
@@ -137,6 +140,7 @@ var app = {
 		this.functionRunning = false;
 		this.counter = 0;
         this.lock = 0;
+        this.wid=0;
 		//var watchID = app.startTracking();
         var self = this;
         this.detailsURL = /^#statues\/(\d{1,})/;
