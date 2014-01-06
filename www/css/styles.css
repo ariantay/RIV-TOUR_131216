@@ -53,7 +53,7 @@ min-height:100%;
 #slideSize{
 	/*margin: 10 10 10 10;*/
 	height: 50%;
-	width: 80%;
+	width: 90%;
 	/*max-height: 340px;
 	max-width: 300px;
 	height: 70%;
@@ -79,7 +79,7 @@ min-height:100%;
 }
 */
 #textContainer{
-	width: 80%; 
+	width: 95%; 
 	max-height:25%; 
 	margin: 0 auto;
 	text-align: left;
@@ -169,7 +169,7 @@ audio {
 {
     margin: 0.6em 10% 0.8em !important;
 }
- 
+
 ::-webkit-scrollbar 
 {
     width: 8px;
