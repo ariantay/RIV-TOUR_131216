@@ -39,8 +39,11 @@ var mapper = {
 		//define curren position icon
 		var pinImage = new google.maps.MarkerImage(
 			'img/nav_plain_blue.png',
-			null,null,null,
+			null,
+			new google.maps.Point(0, 0),
+			new google.maps.Point(8, 8),
 			new google.maps.Size(16, 16)
+			
 		);
 		//define current position marker
 		this.marker = new google.maps.Marker({
@@ -52,14 +55,14 @@ var mapper = {
 		});
 		//define current position radius
 		var options = {
-        strokeColor: '#79BEDB',
-        strokeOpacity: .8,
-        strokeWeight: .8,
-        fillColor: '#79BEDB',
-        fillOpacity: 0.4,
-        map: mapper.map,
-        center: new google.maps.LatLng(33.97801, -117.374814),
-        radius: 60
+			strokeColor: '#79BEDB',
+			strokeOpacity: .8,
+			strokeWeight: .8,
+			fillColor: '#79BEDB',
+			fillOpacity: 0.4,
+			map: mapper.map,
+			center: new google.maps.LatLng(33.97801, -117.374814),
+			radius: 60
 		};
 		this.circle = new google.maps.Circle(options);
 		//current position on click
