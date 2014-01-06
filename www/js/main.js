@@ -81,9 +81,12 @@ var app = {
 		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
+		//update our map marker and radius
 		if (mapper){
 			var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			mapper.marker.setPosition(latlng);
+			mapper.circle.setCenter(latlng);
+			mapper.circle.setRadius(position.coords.accuracy);
 		}	
         if (cur_page == 1 && lock == 0){
             lock = 1;
