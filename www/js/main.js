@@ -226,6 +226,14 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 		//$('#popupBasic p').html("Por favor, haga su camino hacia la estatua mas cercana.");
 	}
 });
+$(document).on("pagebeforeshow", "#settings", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#header h1').html("Settings");
+	}else{
+		$('#header h1').html("Ajustes");
+	}
+});
 $(document).on("pageshow", "#tourpage_home", function () {
 	mapper.resize();
 	cur_page = 1;
