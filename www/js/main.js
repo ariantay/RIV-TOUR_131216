@@ -164,7 +164,7 @@ $(document).on("pagecreate", "#homepage", function () {
 $(document).on("pagebeforeshow", "#homepage", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
-		$('#header h3').html("ENGLISH");
+		$('#header h3').html("City of Riverside Tour Guide");
 		$('#map_link span.ui-btn-text').html("Begin Tour");
 		$('#list_link span.ui-btn-text').html("Statue List");
 		$('#settings_link span.ui-btn-text').html("Settings");
@@ -177,10 +177,10 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 		$('#paragraph3').html("Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.");
 		*/
 	}else{
-		$('#header h3').html("SPANISH");
-		$('#map_link span.ui-btn-text').html("Uno");
-		$('#list_link span.ui-btn-text').html("Dos");
-		$('#settings_link span.ui-btn-text').html("Tres");
+		$('#header h3').html("Ciudad de Riverside Guía de Turismo");
+		$('#map_link span.ui-btn-text').html("Comensar");
+		$('#list_link span.ui-btn-text').html("Lista");
+		$('#settings_link span.ui-btn-text').html("Ajustes");
 		$('#home_text').html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El Orgullo International de Riverside</br></br>" +
 		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riverside es una ciudad que reconoce su historia multicultural y esta orgullosa de sus relaciones internacionales que mantiene hasta ahora. Todo empezó con el dueño del Mission Inn el señor Frank Miller que invitaba a dignatarios del rededor del mundo a que se hospedaran en este lugar. La riqueza de tantas culturas ha existido por más de 150 años comenzando desde 1870.</br></br>" + 
 		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.");
@@ -199,29 +199,31 @@ $(document).on("pageshow", "#tourpage", function () {
 $(document).on("pagebeforeshow", "#statuelist", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
-		$('#header h1').html("ENGLISH");
+		$('#header h1').html("Statue List");
 	}else{
-		$('#header h1').html("SPANISH");
+		$('#header h1').html("Lista De Estatuas");
 	}
 });
 $(document).on("pagebeforeshow", "#statuedetails", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
-		$('#header h1').html("ENGLISH");
+		//$('#header h1').html("ENGLISH");
 		$('#detail_box span.ui-btn-text').html("Detail");
 		$('#address_box span.ui-btn-text').html("Address");
 	}else{
-		$('#header h1').html("SPANISH");
-		$('#detail_box span.ui-btn-text').html("Uno");
-		$('#address_box span.ui-btn-text').html("Dos");
+		//$('#header h1').html("SPANISH");
+		$('#detail_box span.ui-btn-text').html("Detalles");
+		$('#address_box span.ui-btn-text').html("Dirección");
 	}
 });
 $(document).on("pagebeforeshow", "#tourpage_home", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
-		$('#header h1').html("ENGLISH");
+		$('#header h1').html("Tour");
+		//$('#popupBasic p').html("Please make your way to the nearest statue.");
 	}else{
-		$('#header h1').html("SPANISH");
+		$('#header h1').html("Gira");
+		//$('#popupBasic p').html("Por favor, haga su camino hacia la estatua mas cercana.");
 	}
 });
 $(document).on("pageshow", "#tourpage_home", function () {
