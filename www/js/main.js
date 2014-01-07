@@ -78,8 +78,7 @@ var app = {
 			enableHighAccuracy : true
 		};
 		//app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
-		wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
-        
+		return navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	onSuccess: function (position) {
 		//update our map marker and radius
@@ -115,8 +114,6 @@ var app = {
 	onError: function (error) {
 		alert('code: '    + error.code    + '\n' +
 			  'message: ' + error.message + '\n');
-        navigator.geolocation.clearWatch(wid);
-        wid = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
 	},
 	getDistanceFromLatLonInFeet: function (lat1,lon1,lat2,lon2) {
 		var R = 6371; // Radius of the earth in km
@@ -140,7 +137,6 @@ var app = {
 		this.functionRunning = false;
 		this.counter = 0;
         this.lock = 0;
-        this.wid=0;
 		//var watchID = app.startTracking();
         var self = this;
         this.detailsURL = /^#statues\/(\d{1,})/;
@@ -165,16 +161,74 @@ $(document).on("pagecreate", "#homepage", function () {
 	cur_page = 0;
 	cur_statue = -1;
 });	
+$(document).on("pagebeforeshow", "#homepage", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#header h3').html("ENGLISH");
+		$('#map_link span.ui-btn-text').html("Begin Tour");
+		$('#list_link span.ui-btn-text').html("Statue List");
+		$('#settings_link span.ui-btn-text').html("Settings");
+		$('#home_text').html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;International Spirit of Riverside</br></br>" +
+		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riverside has long maintained a spirit of Internationalism and recognition of its multicultural history.  Going back to Frank Miller, the founder of the Mission Inn, Riverside has hosted dignitaries from countries all over the world and provided leadership on an International scale.  Riverside’s multiculturism has existed for nearly 150 years with large segments of various cultures within its population going back to the 1870s.  For example the Mission Inn hosted Japanese, Russian and European dignitaries, national and important state politicians and celebrities, such as several US presidents, Prince Kaya of Japan, Prince Gustav of Sweden, Booker T. Washington, John Muir, and Amelia Earhart.  The World Affairs Council was started in Riverside at the Mission Inn (and was once attended by John F. Kennedy here) and other international peace and social conferences have been hosted here.</br></br>" + 
+		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.");
+		/*
+		$('#paragraph1').html("International Spirit of Riverside");
+		$('#paragraph2').html("Riverside has long maintained a spirit of Internationalism and recognition of its multicultural history.  Going back to Frank Miller, the founder of the Mission Inn, Riverside has hosted dignitaries from countries all over the world and provided leadership on an International scale.  Riverside’s multiculturism has existed for nearly 150 years with large segments of various cultures within its population going back to the 1870s.  For example the Mission Inn hosted Japanese, Russian and European dignitaries, national and important state politicians and celebrities, such as several US presidents, Prince Kaya of Japan, Prince Gustav of Sweden, Booker T. Washington, John Muir, and Amelia Earhart.  The World Affairs Council was started in Riverside at the Mission Inn (and was once attended by John F. Kennedy here) and other international peace and social conferences have been hosted here.");
+		$('#paragraph3').html("Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.");
+		*/
+	}else{
+		$('#header h3').html("SPANISH");
+		$('#map_link span.ui-btn-text').html("Uno");
+		$('#list_link span.ui-btn-text').html("Dos");
+		$('#settings_link span.ui-btn-text').html("Tres");
+		$('#home_text').html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;El Orgullo International de Riverside</br></br>" +
+		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riverside es una ciudad que reconoce su historia multicultural y esta orgullosa de sus relaciones internacionales que mantiene hasta ahora. Todo empezó con el dueño del Mission Inn el señor Frank Miller que invitaba a dignatarios del rededor del mundo a que se hospedaran en este lugar. La riqueza de tantas culturas ha existido por más de 150 años comenzando desde 1870.</br></br>" + 
+		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.");
+		/*
+		$('#paragraph1').html("Media t'ida es la candcla, pan y vino, la otra media");
+		$('#paragraph2').html("Caminante, son tus huellas el camino, y nada más; caminante, no hay camino, se hace camino al andar. Al andar se hace camino, y al volver la vista atrás se ve la senda que nunca se ha de volver a pisar.");
+		$('#paragraph3').html("Media t'ida es la candcla, pan y vino, la otra media. Gracias a dios. Hasta luego. Caminante, son tus huellas el camino, y nada más; caminante, no hay camino, se hace camino al andar. Al andar se hace camino, y al volver la vista atrás se ve la senda que nunca se ha de volver a pisar. Caminante, no hay camino, sino estelas en la mar. Media t'ida es la candcla, pan y vino, la otra media. Gracias a dios. Hasta luego. Caminante, son tus huellas el camino, y nada más; caminante, no hay camino, se hace camino al andar. Al andar se hace camino, y al volver la vista atrás se ve la senda que nunca se ha de volver a pisar. Caminante, no hay camino, sino estelas en la mar.");
+		*/
+	}
+});
 $(document).on("pageshow", "#tourpage", function () {
 	$(window).resize();		//slider won't show until resize...
 	cur_page = 1;
-               lock = 0;
+    lock = 0;
+});
+$(document).on("pagebeforeshow", "#statuelist", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#header h1').html("ENGLISH");
+	}else{
+		$('#header h1').html("SPANISH");
+	}
+});
+$(document).on("pagebeforeshow", "#statuedetails", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#header h1').html("ENGLISH");
+		$('#detail_box span.ui-btn-text').html("Detail");
+		$('#address_box span.ui-btn-text').html("Address");
+	}else{
+		$('#header h1').html("SPANISH");
+		$('#detail_box span.ui-btn-text').html("Uno");
+		$('#address_box span.ui-btn-text').html("Dos");
+	}
+});
+$(document).on("pagebeforeshow", "#tourpage_home", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#header h1').html("ENGLISH");
+	}else{
+		$('#header h1').html("SPANISH");
+	}
 });
 $(document).on("pageshow", "#tourpage_home", function () {
 	mapper.resize();
 	cur_page = 1;
-               cur_statue = -1;
-               lock = 0;
+	cur_statue = -1;
+	lock = 0;
 });
 $(document).on("pageshow", "#settings", function () {
 	mapper.resize();

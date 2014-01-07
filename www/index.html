@@ -32,18 +32,18 @@
 	<div data-role="content">
         <div id="home_navigation" data-role="navbar" data-iconpos="top" class="home_navigation">
             <ul>
-                <li>
-                    <a onclick="location.href='#tourpage_home'"data-transition="fade" data-theme="e" data-icon="star">
+                <li id="map_link">
+                    <a  onclick="location.href='#tourpage_home'"data-transition="fade" data-theme="e" data-icon="star">
                         Begin Tour
                     </a>
                 </li>
                 <li>
-                    <a onclick="location.href='#statuelist'" data-transition="fade" data-theme="e" data-icon="bars">
+                    <a id="list_link" onclick="location.href='#statuelist'" data-transition="fade" data-theme="e" data-icon="bars">
                         Statue List
                     </a>
                 </li>
                 <li>
-                    <a onclick="location.href='#settings'" data-transition="fade" data-theme="e" data-icon="gear">
+                    <a id="settings_link" onclick="location.href='#settings'" data-transition="fade" data-theme="e" data-icon="gear">
                         Settings
                     </a>
                 </li>
@@ -52,13 +52,13 @@
     </div>
  	<div id="home_text_container">
 		<div id='home_text' class="paragraph_display" >
-    	<p style="text-indent: 37px">
+    	<p id="paragaph1" style="text-indent: 37px">
 			International Spirit of Riverside 
 		</p>
-		<p  style="text-indent: 20px">
+		<p id="paragaph2" style="text-indent: 20px">
 			Riverside has long maintained a spirit of Internationalism and recognition of its multicultural history.  Going back to Frank Miller, the founder of the Mission Inn, Riverside has hosted dignitaries from countries all over the world and provided leadership on an International scale.  Riverside’s multiculturism has existed for nearly 150 years with large segments of various cultures within its population going back to the 1870s.  For example the Mission Inn hosted Japanese, Russian and European dignitaries, national and important state politicians and celebrities, such as several US presidents, Prince Kaya of Japan, Prince Gustav of Sweden, Booker T. Washington, John Muir, and Amelia Earhart.  The World Affairs Council was started in Riverside at the Mission Inn (and was once attended by John F. Kennedy here) and other international peace and social conferences have been hosted here.
 		</p>
-		<p  style="text-indent: 20px">
+		<p id="paragaph3" style="text-indent: 20px">
 			Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.
 		</p>
 		</div>
@@ -198,14 +198,14 @@
 		</tr>		      
 		</table>
 		
-		<div data-role="collapsible" data-theme="b" data-content-theme="e" data-collapsed="false">
+		<div id='detail_box' data-role="collapsible" data-theme="b" data-content-theme="e" data-collapsed="false">
 				<h3>Detail</h3>
                 <div id='statuedetails_detailstext'>
 				<p>
 			</div>
 		</div>
  				
-		<div data-role="collapsible" data-theme="b" data-content-theme="e" data-collapsed="false">
+		<div id='address_box' data-role="collapsible" data-theme="b" data-content-theme="e" data-collapsed="false">
 				<h3>Address</h3>
                 <div id='statuedetails_address'>
                     <p>
