@@ -210,9 +210,11 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 $(document).on("pagebeforeshow", "#settings", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
+		$('#settings_legend a').html("Language");
 		$('#header h1').html("Settings");
 	}else{
 		$('#header h1').html("Ajustes");
+		$('#settings_legend a').html("Idioma");
 	}
 });
 $(document).on("pageshow", "#tourpage_home", function () {
