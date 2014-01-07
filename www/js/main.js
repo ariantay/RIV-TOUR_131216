@@ -3,6 +3,10 @@ var app = {
         $(window).on('hashchange', $.proxy(this.route, this));
     },
 	routeTo: function(statueID) {
+		//to prevent auto routing 
+		if($('checkbox-1').is(':checked')){
+			return;
+		}
 		if (statueID === app.numStatues){
 			$('#headerText').html('City of Riverside');
 		}else{
