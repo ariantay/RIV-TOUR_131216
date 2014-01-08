@@ -15,10 +15,12 @@ var app = {
 			var language = $('input[name="radio-choice-2"]:checked').val();
 			if (language == 'english'){
 				$('#statue_text').html(statue.info.english);
+				$('.audioFile').attr('src','audio/'+statue.urlstring+'_eng.mp3');
 			}else{
 				$('#statue_text').html(statue.info.spanish);
+				$('.audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 			}
-			$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
+			//$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
 			$('.image_3').attr('src','img/'+statue.urlstring+'_3.jpg');
