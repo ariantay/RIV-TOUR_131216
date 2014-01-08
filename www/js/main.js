@@ -7,12 +7,16 @@ var app = {
 		if($('checkbox-1').is(':checked')){
 			return;
 		}
+		//change header
 		if (statueID === app.numStatues){
 			$('#headerText').html('City of Riverside');
 		}else{
 			var statue = app.store.statues[statueID];
 			$('#headerText').html(statue.name);
 			var language = $('input[name="radio-choice-2"]:checked').val();
+			//reset audio control and change audio file
+			$('.audioControl').trigger('pause');
+			$('.audioControl').prop('currentTime',0);
 			if (language == 'english'){
 				$('#statue_text').html(statue.info.english);
 				$('.audioFile').attr('src','audio/'+statue.urlstring+'_eng.mp3');
@@ -20,13 +24,14 @@ var app = {
 				$('#statue_text').html(statue.info.spanish);
 				$('.audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 			}
-			//$('.audioFile').attr('src','audio/'+statue.urlstring+'_1.mp3');
+			//change images
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
 			$('.image_3').attr('src','img/'+statue.urlstring+'_3.jpg');
 			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
 		}
+		//reload flexslider
 		$('.flexslider').flexslider({
 			animation: "slide",
 			controlNav: false
@@ -226,6 +231,7 @@ $(document).on("pagebeforeshow", "#settings", function () {
 	}
 });
 $(document).on("pageshow", "#tourpage_home", function () {
+	$('.audioControl')
 	mapper.resize();
 	cur_page = 1;
 	cur_statue = -1;
