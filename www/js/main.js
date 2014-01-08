@@ -4,7 +4,7 @@ var app = {
     },
 	routeTo: function(statueID) {
 		//to prevent auto routing 
-		if($('checkbox-1').is(':checked')){
+		if($('#checkbox-1').is(':checked')){
 			return;
 		}
 		//change header
@@ -14,9 +14,6 @@ var app = {
 			var statue = app.store.statues[statueID];
 			$('#headerText').html(statue.name);
 			var language = $('input[name="radio-choice-2"]:checked').val();
-			//reset audio control and change audio file
-			$('.audioControl').trigger('pause');
-			$('.audioControl').prop('currentTime',0);
 			if (language == 'english'){
 				$('#statue_text').html(statue.info.english);
 				$('.audioFile').attr('src','audio/'+statue.urlstring+'_eng.mp3');
@@ -55,7 +52,6 @@ var app = {
 			$('#statuedetails_detailstext p').html(statue.info.spanish);
 		}
 		$('#statuedetails_address p').html(statue.street);
-		
 		$.mobile.changePage("#statuedetails");
 	},
 	createStatuelist: function() {
@@ -151,11 +147,10 @@ var app = {
 		this.statuelistCreated = false;
     }
 };
-
 var cur_statue = -1;
 var cur_page = 0;  //used to determine if on tour pages or not
 //jquery mobile events handling
-// ** need to mute audio on page change later **
+//HOMEPAGE
 $(document).on("pagecreate", "#homepage", function () {
 	if(!app.initialized){
 		app.initialize();	
@@ -185,29 +180,7 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 		"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Riverside fue la primera ciudad Americana en participar en el programa de Ciudades Hermanas Internacionales que empezó después de la segunda guerra mundial. Esa tradición continúa hasta este día y más ciudades como Japón, México, Corea, China, India, Ghana, y Alemania son ya miembros de este gran programa. Las estatuas en la calle Main son un símbolo de orgullo internacional que reconocen a varios e importantes líderes de los derechos humanos y de la historia.");
 	}
 });
-$(document).on("pageshow", "#tourpage", function () {
-	$(window).resize();		//slider won't show until resize...
-	cur_page = 1;
-    lock = 0;
-});
-$(document).on("pagebeforeshow", "#statuelist", function () {
-	var language = $('input[name="radio-choice-2"]:checked').val();
-	if (language == 'english'){
-		$('#header h1').html("Statue List");
-	}else{
-		$('#header h1').html("Lista De Estatuas");
-	}
-});
-$(document).on("pagebeforeshow", "#statuedetails", function () {
-	var language = $('input[name="radio-choice-2"]:checked').val();
-	if (language == 'english'){
-		$('#detail_box span.ui-btn-text').html("Detail");
-		$('#address_box span.ui-btn-text').html("Address");
-	}else{
-		$('#detail_box span.ui-btn-text').html("Detalles");
-		$('#address_box span.ui-btn-text').html("Dirección");
-	}
-});
+//TOURPAGE_HOME EVENTS
 $(document).on("pagebeforeshow", "#tourpage_home", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
@@ -218,6 +191,43 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 		$('#popupBasic p:first').html("Por favor, haga su camino hacia la estatua mas cercana.");
 	}
 });
+$(document).on("pageshow", "#tourpage_home", function () {
+	if(!$('#checkbox-2').is(':checked')){
+		console.log($('#checkbox-2').is(':checked'))
+		$('.audioControl').trigger('play');
+	}
+	mapper.resize();
+	cur_page = 1;
+	cur_statue = -1;
+	lock = 0;
+});
+$(document).on("pagehide", "#tourpage_home", function () {
+	$('.audioControl').trigger('pause');
+	$('.audioControl').prop('currentTime',0);
+});
+//TOURPAGE EVENTS
+$(document).on("pageshow", "#tourpage", function () {
+	if(!$('#checkbox-2').is(':checked')){
+		$('.audioControl').trigger('play');
+	}
+	$("#statue_text").scrollTop(0);
+	$(window).resize();		//slider won't show until resize...
+	cur_page = 1;
+    lock = 0;
+});
+$(document).on("pagehide", "#tourpage", function () {
+	$('.audioControl').trigger('pause');
+	$('.audioControl').prop('currentTime',0);
+});
+$(document).on("pagebeforeshow", "#statuelist", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#header h1').html("Statue List");
+	}else{
+		$('#header h1').html("Lista De Estatuas");
+	}
+});
+//SETTINGS EVENTS
 $(document).on("pagebeforeshow", "#settings", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
@@ -230,27 +240,33 @@ $(document).on("pagebeforeshow", "#settings", function () {
 		$('#settings_legend_2 a').html("Inutilizar Enrutamiento Automático");
 	}
 });
-$(document).on("pageshow", "#tourpage_home", function () {
-	$('.audioControl')
-	mapper.resize();
-	cur_page = 1;
-	cur_statue = -1;
-	lock = 0;
-});
 $(document).on("pageshow", "#settings", function () {
 	mapper.resize();
 	cur_page = 1;
 	cur_statue = -1;
 });
+//STATUELIST EVENTS
 $(document).on("pagecreate", "#statuelist", function () {
 	app.createStatuelist();
 	cur_page = 0;
 	cur_statue = -1;
 });
+//STATUEDETAILS EVENTS
 $(document).on("pagecreate", "#statuedetails", function () {
 	cur_page = 0;
 	cur_statue = -1;
 });
+$(document).on("pagebeforeshow", "#statuedetails", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#detail_box span.ui-btn-text').html("Detail");
+		$('#address_box span.ui-btn-text').html("Address");
+	}else{
+		$('#detail_box span.ui-btn-text').html("Detalles");
+		$('#address_box span.ui-btn-text').html("Dirección");
+	}
+});
+
 //fix for ios 7 status bar ** doesnt work leave for later
 /*
 function onDeviceReady() {
