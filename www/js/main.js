@@ -194,7 +194,7 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 $(document).on("pageshow", "#tourpage_home", function () {
 	if(!$('#checkbox-2').is(':checked')){
 		console.log($('#checkbox-2').is(':checked'))
-		$('#tourhome_audioContainer audio').trigger('play');
+		$('.audioControl').trigger('play');
 	}
 	mapper.resize();
 	cur_page = 1;
@@ -210,7 +210,7 @@ $(document).on("pagebeforeshow", "#tourpage", function () {
 });
 $(document).on("pageshow", "#tourpage", function () {
 	if(!$('#checkbox-2').is(':checked')){
-		$('#audioContainer audio').trigger('play');
+		$('.audioControl').trigger('play');
 	}
 	//$("#statue_text").scrollTop(0);
 	$("#textContainer").scrollTop(0);
