@@ -206,11 +206,14 @@ $(document).on("pagehide", "#tourpage_home", function () {
 	$('.audioControl').prop('currentTime',0);
 });
 //TOURPAGE EVENTS
+$(document).on("pagebeforeshow", "#tourpage", function () {
+});
 $(document).on("pageshow", "#tourpage", function () {
 	if(!$('#checkbox-2').is(':checked')){
 		$('.audioControl').trigger('play');
 	}
-	$("#statue_text").scrollTop(0);
+	//$("#statue_text").scrollTop(0);
+	$("#textContainer").scrollTop(0);
 	$(window).resize();		//slider won't show until resize...
 	cur_page = 1;
     lock = 0;
@@ -219,14 +222,7 @@ $(document).on("pagehide", "#tourpage", function () {
 	$('.audioControl').trigger('pause');
 	$('.audioControl').prop('currentTime',0);
 });
-$(document).on("pagebeforeshow", "#statuelist", function () {
-	var language = $('input[name="radio-choice-2"]:checked').val();
-	if (language == 'english'){
-		$('#header h1').html("Statue List");
-	}else{
-		$('#header h1').html("Lista De Estatuas");
-	}
-});
+
 //SETTINGS EVENTS
 $(document).on("pagebeforeshow", "#settings", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
@@ -250,6 +246,14 @@ $(document).on("pagecreate", "#statuelist", function () {
 	app.createStatuelist();
 	cur_page = 0;
 	cur_statue = -1;
+});
+$(document).on("pagebeforeshow", "#statuelist", function () {
+	var language = $('input[name="radio-choice-2"]:checked').val();
+	if (language == 'english'){
+		$('#header h1').html("Statue List");
+	}else{
+		$('#header h1').html("Lista De Estatuas");
+	}
 });
 //STATUEDETAILS EVENTS
 $(document).on("pagecreate", "#statuedetails", function () {
