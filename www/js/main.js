@@ -249,7 +249,7 @@ $(document).on("pagebeforeshow", "#settings", function () {
 });
 $(document).on("pageshow", "#settings", function () {
 	mapper.resize();
-	cur_page = 1;
+	cur_page = 0;
 	cur_statue = -1;
 });
 //STATUELIST EVENTS
