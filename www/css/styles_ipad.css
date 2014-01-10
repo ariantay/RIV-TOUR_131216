@@ -79,8 +79,8 @@ min-height:100%;
 }
 */
 #textContainer{
-	width: 95%; 
-	max-height:25%; 
+	width: 92%; 
+	max-height:40%; 
 	margin: 0 auto;
 	text-align: left;
 	overflow: auto;
@@ -89,12 +89,14 @@ min-height:100%;
   	/*opacity: 1.0;*/
 	opacity: .9;
   	border-radius: 25px;
+  	position: relative;
+  	bottom: 71px;  	
 }
 
 #home_text_container
 {
-	width: 300px; 
-	max-height:330px; 
+	width: 550px; 
+	max-height:600px; 
 	margin: 0 auto;
 	text-align: left;
 	overflow: auto;
@@ -106,10 +108,11 @@ min-height:100%;
 }
 
 #audioContainer{
+	bottom: 30px;
 	display: table;
     margin: 0 auto;
 	text-align: center;
-	width: 80%;
+	width: 92%;
 	height: 10%;
 	position: relative;
 }
@@ -169,6 +172,11 @@ audio {
 .ui-title 
 {
     margin: 0.6em 2% 0.8em !important;
+}
+
+.ui-content
+{
+	padding-bottom: 100px;
 }
 
 ::-webkit-scrollbar 
