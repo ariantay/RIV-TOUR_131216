@@ -93,8 +93,10 @@ min-height:100%;
 
 #home_text_container
 {
-	width: 300px; 
-	max-height:330px; 
+	/*width: 300px; 
+	max-height:330px; */
+	width: 95%; 
+	max-height:60%; 
 	margin: 0 auto;
 	text-align: left;
 	overflow: auto;
@@ -103,6 +105,18 @@ min-height:100%;
   	/*opacity: 1.0;*/
 	opacity: .8;
   	border-radius: 25px;
+}
+
+#home_audioContainer
+{
+	/*bottom: 2px;*/
+	bottom: .6%;
+	display: table;
+    margin: 0 auto;
+	text-align: center;
+	width: 95%;
+	height: 10%;
+	position: relative;
 }
 
 #audioContainer{
