@@ -10,6 +10,8 @@ var app = {
 		//change header
 		if (statueID === app.numStatues){
 			$('#headerText').html('City of Riverside');
+            $('.audioFile_home').attr('src','audio/tourhome_eng.mp3');
+            
 		}else{
 			var statue = app.store.statues[statueID];
 			$('#headerText').html(statue.name);
@@ -21,6 +23,9 @@ var app = {
 				$('#statue_text').html(statue.info.spanish);
 				$('.audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 			}
+            
+            $('.audioControl').trigger('load');
+            
 			//change images
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
@@ -29,10 +34,7 @@ var app = {
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
 		}
 		//reload flexslider
-		$('.flexslider').flexslider({
-			animation: "slide",
-			controlNav: false
-		});
+		
         cur_statue = statueID;
 		console.log("Navigating to:  " + statueID + " - " + statue.name);
 		console.log("cur_statue " + cur_statue);
@@ -160,6 +162,7 @@ $(document).on("pagecreate", "#homepage", function () {
 	cur_statue = -1;
 });	
 $(document).on("pagebeforeshow", "#homepage", function () {
+               cur_page = 0;
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
 		$('#header h3').html("City of Riverside Tour Guide");
@@ -194,7 +197,7 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 $(document).on("pageshow", "#tourpage_home", function () {
 	if(!$('#checkbox-2').is(':checked')){
 		console.log($('#checkbox-2').is(':checked'))
-		$('.audioControl').trigger('play');
+		//$('.audioControl').trigger('play');
 		//$('#tourhome_audioContainer audio').trigger('play');
 	}
 	mapper.resize();
@@ -203,13 +206,19 @@ $(document).on("pageshow", "#tourpage_home", function () {
 	lock = 0;
 });
 $(document).on("pagehide", "#tourpage_home", function () {
-	$('.audioControl').trigger('pause');
-	$('.audioControl').prop('currentTime',0);
+	//$('.audioControl').trigger('pause');
+	//$('.audioControl').prop('currentTime',0);
 });
 //TOURPAGE EVENTS
 $(document).on("pagebeforeshow", "#tourpage", function () {
 });
 $(document).on("pageshow", "#tourpage", function () {
+               
+               $('.flexslider').flexslider({
+                                           animation: "slide",
+                                           controlNav: false
+                                           });
+               
 	if(!$('#checkbox-2').is(':checked')){
 	$('.audioControl').trigger('play');
 		//$('#audioContainer audio').trigger('play');
