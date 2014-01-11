@@ -161,7 +161,7 @@ audio {
 	height: 100%;
 	width: 95%;
     padding: 7px; 
-    font-family: cursive; 
+    font-family: Helvetica,Arial,sans-serif; 
     font-weight: bold;
     color:black;
 }
@@ -169,6 +169,11 @@ audio {
 #popupBasic
 {
 	right: 16.6%;
+}
+
+#detail_box
+{
+	text-align: left;
 }
 
 .button

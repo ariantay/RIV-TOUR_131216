@@ -163,9 +163,14 @@ audio {
 	height: 100%;
 	width: 95%;
     padding: 7px; 
-    font-family: cursive; 
+    font-family: Helvetica,Arial,sans-serif; 
     font-weight: bold;
     color:black;
+}
+
+#detail_box
+{
+	text-align: left;
 }
 
 .button
