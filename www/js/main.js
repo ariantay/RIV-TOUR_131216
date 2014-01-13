@@ -216,13 +216,20 @@ $(document).on("pagehide", "#tourpage_home", function () {
 //TOURPAGE EVENTS
 $(document).on("pagebeforeshow", "#tourpage", function () {
 });
-$(document).on("pageshow", "#tourpage", function () {
-               
-               $('.flexslider').flexslider({
-                                           animation: "slide",
-                                           controlNav: false
-                                           });
-               
+$(document).on("pageshow", "#tourpage", function () { 
+	$('.flexslider').flexslider({
+		animation: "slide",
+		slideshowSpeed: 3200,
+		controlNav: false,
+		after: function(slider) {
+		/* auto-restart player if paused after action */
+			if (!slider.playing) {
+				slider.play();
+				console.log(slider);
+			}
+	}
+	  
+   });
 	if(!$('#checkbox-2').is(':checked')){
 	$('.audioControl').trigger('play');
 		//$('#audioContainer audio').trigger('play');
