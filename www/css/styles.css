@@ -10,7 +10,7 @@ body {
 	text-align: center;
 	position: relative;
     font-family: source-sans-pro, serif;
-    font-size: 16px;
+    font-size: 18px;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -158,6 +158,17 @@ audio {
     color:black;
 }
 
+#home_title
+{
+	margin: 0 auto;
+	height: 100%;
+	width: 95%;
+    padding: 7px; 
+    font-family: Helvetica,Arial,sans-serif; 
+    font-weight: bold;
+    color:black;
+    text-align: center;
+}
 
 #home_text
 {
