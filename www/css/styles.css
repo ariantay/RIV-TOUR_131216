@@ -39,6 +39,10 @@ min-height:100%;
   -o-background-size: cover;
   background-size: cover;
 }
+
+/*background color*/
+.ui-page { background: #2E2E2E;}
+
 #map-canvas_holder{
 	height: 75%;
 	width: 90%;
