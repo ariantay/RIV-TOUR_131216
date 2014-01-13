@@ -23,9 +23,8 @@ var app = {
 				$('#statue_text').html(statue.info.spanish);
 				$('.audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 			}
-            
             $('.audioControl').trigger('load');
-            
+			
 			//change images
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
@@ -55,6 +54,7 @@ var app = {
 			$('#statuedetails_detailstext p').html(statue.info.spanish);
 			$('.statuedetails_audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 		}
+		$('.statuedetails_audioControl').trigger('load');
 		$('#statuedetails_address p').html(statue.street);
 		$.mobile.changePage("#statuedetails");
 	},
