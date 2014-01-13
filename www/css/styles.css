@@ -195,7 +195,7 @@ audio {
 	height: 100px;
 	width: 75px;
 }
-#statuedetails_audio_control{
+#statuedetails_audio_container audio{
 	margin-bottom: 10px;
 	height: 10%;
 	width: 90%;

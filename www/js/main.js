@@ -50,10 +50,10 @@ var app = {
 		var language = $('input[name="radio-choice-2"]:checked').val();
 		if (language == 'english'){
 			$('#statuedetails_detailstext p').html(statue.info.english);
-			$('#statuedetails_audio_file').attr('src','audio/'+statue.urlstring+'_eng.mp3');
+			$('.statuedetails_audioFile').attr('src','audio/'+statue.urlstring+'_eng.mp3');
 		}else{
 			$('#statuedetails_detailstext p').html(statue.info.spanish);
-			$('#statuedetails_audio_file').attr('src','audio/'+statue.urlstring+'_esp.mp3');
+			$('.statuedetails_audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 		}
 		$('#statuedetails_address p').html(statue.street);
 		$.mobile.changePage("#statuedetails");
@@ -295,6 +295,10 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 		$('#detail_box span.ui-btn-text').html("Detalles");
 		$('#address_box span.ui-btn-text').html("Posición");
 	}
+});
+$(document).on("pagehide", "#statuedetails", function () {
+	$('.statuedetails_audioControl').trigger('pause');
+	$('.statuedetails_audioControl').prop('currentTime',0);
 });
 
 //fix for ios 7 status bar ** doesnt work leave for later
