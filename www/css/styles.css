@@ -195,7 +195,15 @@ audio {
 	height: 100px;
 	width: 75px;
 }
-
+#statuedetails_audio_control{
+	margin-bottom: 10px;
+	height: 10%;
+	width: 90%;
+}
+#statuedetails_audio_container{
+	height: 15%;
+	width: 90%;
+}
 .button
 {
 	height: 35px;

@@ -50,8 +50,10 @@ var app = {
 		var language = $('input[name="radio-choice-2"]:checked').val();
 		if (language == 'english'){
 			$('#statuedetails_detailstext p').html(statue.info.english);
+			$('#statuedetails_audio_file').attr('src','audio/'+statue.urlstring+'_eng.mp3');
 		}else{
 			$('#statuedetails_detailstext p').html(statue.info.spanish);
+			$('#statuedetails_audio_file').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 		}
 		$('#statuedetails_address p').html(statue.street);
 		$.mobile.changePage("#statuedetails");
