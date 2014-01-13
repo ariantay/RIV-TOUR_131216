@@ -43,7 +43,7 @@ var app = {
 	},
 	showDetails: function(statueID) {
 		var statue = app.store.statues[statueID];
-		$('#statuedetails_thumb').attr('src','img/'+statue.urlstring+'_thumb.jpg');
+		$('#statuedetails_thumb').attr('src','img/'+statue.urlstring+'_thumb2.jpg');
 		$('#statuedetails_thumbtext h2').html(statue.name);
 		$('#statuedetails_thumbtext p').html(statue.lon + ' ' + statue.lat);
 		
@@ -63,7 +63,7 @@ var app = {
 			for (var i=0; i<app.numStatues; i++) {
 				var statue = app.store.statues[i];
 				html += '<li>';
-				html += '<img src=img/' + statue.urlstring + '_1.jpg>';
+				html += '<img src=img/' + statue.urlstring + '_thumb2.jpg>';
 				html += '<h3>' + statue.name + '</h3>';
 				html += '<p style="font-size: 0.7em">' + statue.lon + ", " + statue.lat + '</p>';
 				html += '</li>';
