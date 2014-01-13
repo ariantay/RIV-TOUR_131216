@@ -50,7 +50,7 @@ min-height:100%;
 	text-align: left;
 }
 #map-canvas{
-	top: 15px;
+	top: 10.5%;
 	height: 100%;
 	width: 100%;
 }
@@ -196,7 +196,7 @@ audio {
 	width: 75px;
 }
 #statuedetails_audio_control{
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	height: 10%;
 	width: 90%;
 }

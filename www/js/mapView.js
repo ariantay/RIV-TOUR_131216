@@ -4,7 +4,7 @@ var mapper = {
 			google.maps.event.trigger(mapper.map, 'resize');
 			var tempCenter = new google.maps.LatLng(33.981905, -117.374513);
 			mapper.map.setCenter(tempCenter); 
-			mapper.map.setZoom(17);
+			mapper.map.setZoom(16);
 		}
 	},
 	createMarker: function(statue) {
@@ -32,7 +32,7 @@ var mapper = {
     initialize: function() {
 		//create the map
 		this.mapOptions = {
-			zoom: 17,
+			zoom: 16,
 			center: new google.maps.LatLng(33.981905, -117.374513)
 		};
 		this.map = new google.maps.Map(document.getElementById('map-canvas'),this.mapOptions); 
