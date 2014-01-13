@@ -55,7 +55,6 @@ var app = {
 			$('#statuedetails_detailstext p').html(statue.info.spanish);
 			$('#statuedetails_audio_file').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 		}
-		$('.audioControl').trigger('load');
 		$('#statuedetails_address p').html(statue.street);
 		$.mobile.changePage("#statuedetails");
 	},
@@ -204,7 +203,7 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 $(document).on("pageshow", "#tourpage_home", function () {
 	if(!$('#checkbox-2').is(':checked')){
 		console.log($('#checkbox-2').is(':checked'))
-			$('#home_audioControl').trigger('play');
+		//$('.audioControl').trigger('play');
 		//$('#tourhome_audioContainer audio').trigger('play');
 	}
 	mapper.resize();
@@ -213,8 +212,8 @@ $(document).on("pageshow", "#tourpage_home", function () {
 	lock = 0;
 });
 $(document).on("pagehide", "#tourpage_home", function () {
-	$('.audioControl').trigger('pause');
-	$('.audioControl').prop('currentTime',0);
+	//$('.audioControl').trigger('pause');
+	//$('.audioControl').prop('currentTime',0);
 });
 //TOURPAGE EVENTS
 $(document).on("pagebeforeshow", "#tourpage", function () {
@@ -234,7 +233,7 @@ $(document).on("pageshow", "#tourpage", function () {
 	  
    });
 	if(!$('#checkbox-2').is(':checked')){
-	$('#tourpage_audioControl').trigger('play');
+	$('.audioControl').trigger('play');
 		//$('#audioContainer audio').trigger('play');
 	}
 	//$("#statue_text").scrollTop(0);
@@ -297,10 +296,7 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 		$('#address_box span.ui-btn-text').html("Posición");
 	}
 });
-$(document).on("pagehide", "#statuedetails", function () {
-	$('.audioControl').trigger('pause');
-	$('.audioControl').prop('currentTime',0);
-});
+
 //fix for ios 7 status bar ** doesnt work leave for later
 /*
 function onDeviceReady() {
