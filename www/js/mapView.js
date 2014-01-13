@@ -2,9 +2,9 @@ var mapper = {
 	resize: function() {
 		if (!mapper.attached){
 			google.maps.event.trigger(mapper.map, 'resize');
-			var tempCenter = new google.maps.LatLng(33.97801, -117.374814);
+			var tempCenter = new google.maps.LatLng(33.981905, -117.374513);
 			mapper.map.setCenter(tempCenter); 
-			mapper.map.setZoom(16);
+			mapper.map.setZoom(17);
 		}
 	},
 	createMarker: function(statue) {
@@ -32,8 +32,8 @@ var mapper = {
     initialize: function() {
 		//create the map
 		this.mapOptions = {
-			zoom: 16,
-			center: new google.maps.LatLng(33.97801, -117.374814)
+			zoom: 17,
+			center: new google.maps.LatLng(33.981905, -117.374513)
 		};
 		this.map = new google.maps.Map(document.getElementById('map-canvas'),this.mapOptions); 
 		//define curren position icon
@@ -47,7 +47,7 @@ var mapper = {
 		);
 		//define current position marker
 		this.marker = new google.maps.Marker({
-			position: new google.maps.LatLng(33.97801, -117.374814),
+			position: new google.maps.LatLng(33.981905, -117.374513),
 			map: this.map,
 			title:"You are here",
 			index: app.numStatues,
@@ -61,7 +61,7 @@ var mapper = {
 			fillColor: '#79BEDB',
 			fillOpacity: 0.4,
 			map: mapper.map,
-			center: new google.maps.LatLng(33.97801, -117.374814),
+			center: new google.maps.LatLng(33.981905, -117.374513),
 			radius: 60
 		};
 		this.circle = new google.maps.Circle(options);
