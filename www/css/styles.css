@@ -191,6 +191,11 @@ audio {
 	text-align: left;
 }
 
+#statuedetails_thumb{
+	height: 100px;
+	width: 100px;
+}
+
 .button
 {
 	height: 35px;
