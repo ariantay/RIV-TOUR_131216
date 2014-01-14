@@ -183,7 +183,14 @@ audio {
 
 #popupBasic
 {
-	right: 16.6%;
+	right: 16.6%;	
+}
+
+element.style
+{
+	max-width: 40%;
+	top: 15%;
+	left: 35%;
 }
 
 #detail_box
