@@ -160,13 +160,10 @@ audio {
     color:black;
 }
 #statuedetails_thumb{
-	height: 400px;
-	width: 300px;
+	height: 350px;
+	width: 262px;
 }
-.statuelist_imgs{
-	height: 400px;
-	width: 300px;
-}
+
 #home_title
 {
 	margin: 0 auto;
