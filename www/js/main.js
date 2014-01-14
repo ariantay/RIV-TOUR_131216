@@ -32,13 +32,9 @@ var app = {
 			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
 		}
-		//reload flexslider
 		
         cur_statue = statueID;
-		console.log("Navigating to:  " + statueID + " - " + statue.name);
-		console.log("cur_statue " + cur_statue);
-		console.log("current language: " + language);
-		$.mobile.changePage("#tourpage");
+		$.mobile.changePage("#tourpage", {allowSamePageTransition:true});
 	},
 	showDetails: function(statueID) {
 		var statue = app.store.statues[statueID];
