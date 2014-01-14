@@ -302,10 +302,16 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 		$('#detail_box span.ui-btn-text').html("Detalles");
 		$('#address_box span.ui-btn-text').html("Posición");
 	}
+	$('#audio_box').trigger('expand');
+	$('#address_box').trigger('expand');
+	$('#detail_box').trigger('collapse');
 });
 $(document).on("pagehide", "#statuedetails", function () {
 	$('.statuedetails_audioControl').trigger('pause');
 	$('.statuedetails_audioControl').prop('currentTime',0);
+	$('#audio_box').trigger('expand');
+	$('#address_box').trigger('expand');
+	$('#detail_box').trigger('collapse');
 });
 
 //fix for ios 7 status bar ** doesnt work leave for later
