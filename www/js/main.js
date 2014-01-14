@@ -23,9 +23,8 @@ var app = {
 				$('#statue_text').html(statue.info.spanish);
 				$('.audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 			}
-            
             $('.audioControl').trigger('load');
-            
+			
 			//change images
 			$('.image_1').attr('src','img/'+statue.urlstring+'_1.jpg');
 			$('.image_2').attr('src','img/'+statue.urlstring+'_2.jpg');
@@ -50,11 +49,12 @@ var app = {
 		var language = $('input[name="radio-choice-2"]:checked').val();
 		if (language == 'english'){
 			$('#statuedetails_detailstext p').html(statue.info.english);
-			$('#statuedetails_audio_file').attr('src','audio/'+statue.urlstring+'_eng.mp3');
+			$('.statuedetails_audioFile').attr('src','audio/'+statue.urlstring+'_eng.mp3');
 		}else{
 			$('#statuedetails_detailstext p').html(statue.info.spanish);
-			$('#statuedetails_audio_file').attr('src','audio/'+statue.urlstring+'_esp.mp3');
+			$('.statuedetails_audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 		}
+		$('.statuedetails_audioControl').trigger('load');
 		$('#statuedetails_address p').html(statue.street);
 		$.mobile.changePage("#statuedetails");
 	},
@@ -165,7 +165,7 @@ $(document).on("pagecreate", "#homepage", function () {
 	cur_statue = -1;
 });	
 $(document).on("pagebeforeshow", "#homepage", function () {
-               cur_page = 0;
+    cur_page = 0;
 	var language = $('input[name="radio-choice-2"]:checked').val();
 	if (language == 'english'){
 		$('#header h3').html("City of Riverside Tour Guide");
@@ -187,8 +187,12 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 		"El Mission Inn ha tenido invitados dignitarios  japoneses, rusos,  y europeos. Otros invitados incluyen políticos nacionales y locales, gente famosa, presidentes de los Estados Unidos, el príncipe Kaya de Japón, el príncipe Gustavo de Suecia, el activista Booker T. Washington, el escritor John Muir, y la primera mujer de aviación Amelia Earhart. La Consejería de los Asuntos Mundiales empezó en Riverside en el Mission Inn y fue asistida por John F. Kennedy una vez. Otras conferencias para paz internacional y otros eventos sociales también tomaron lugar en este sitio.</br></br>" +
 		"Riverside fue la primera ciudad Americana en participar en el programa de Ciudades Hermanas Internacionales que empezó después de la segunda guerra mundial. Esa tradición continúa hasta este día y más ciudades como Japón, México, Corea, China, India, Ghana, y Alemania son ya miembros de este gran programa. Las estatuas en la calle Main son un símbolo de orgullo internacional que reconocen a varios e importantes líderes de los derechos humanos y de la historia.");
 	}
-	
 	$('.home_audioControl').trigger('load');
+});
+
+$(document).on("pagehide", "#homepage", function () {
+	$('.home_audioControl').trigger('pause');
+	$('.home_audioControl').prop('currentTime',0);
 });
 
 //TOURPAGE_HOME EVENTS
@@ -298,6 +302,10 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 		$('#detail_box span.ui-btn-text').html("Detalles");
 		$('#address_box span.ui-btn-text').html("Posición");
 	}
+});
+$(document).on("pagehide", "#statuedetails", function () {
+	$('.statuedetails_audioControl').trigger('pause');
+	$('.statuedetails_audioControl').prop('currentTime',0);
 });
 
 //fix for ios 7 status bar ** doesnt work leave for later
