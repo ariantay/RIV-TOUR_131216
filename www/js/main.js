@@ -237,8 +237,7 @@ $(document).on("pageshow", "#tourpage", function () {
 				slider.play();
 				console.log(slider);
 			}
-	}
-	  
+		}
    });
 	if(!$('#checkbox-2').is(':checked')){
 	$('.audioControl').trigger('play');
@@ -250,9 +249,13 @@ $(document).on("pageshow", "#tourpage", function () {
 	cur_page = 1;
     lock = 0;
 });
+$(document).on("pagebeforehide", "#tourpage", function () {
+	//$('.flexslider').flexslider(0);
+});
 $(document).on("pagehide", "#tourpage", function () {
 	$('.audioControl').trigger('pause');
 	$('.audioControl').prop('currentTime',0);
+
 });
 
 //SETTINGS EVENTS
@@ -303,10 +306,16 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 		$('#detail_box span.ui-btn-text').html("Detalles");
 		$('#address_box span.ui-btn-text').html("Posición");
 	}
+	$('#audio_box').trigger('expand');
+	$('#address_box').trigger('expand');
+	$('#detail_box').trigger('collapse');
 });
 $(document).on("pagehide", "#statuedetails", function () {
 	$('.statuedetails_audioControl').trigger('pause');
 	$('.statuedetails_audioControl').prop('currentTime',0);
+	$('#audio_box').trigger('expand');
+	$('#address_box').trigger('expand');
+	$('#detail_box').trigger('collapse');
 });
 
 //fix for ios 7 status bar ** doesnt work leave for later
