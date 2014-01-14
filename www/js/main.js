@@ -52,6 +52,7 @@ var app = {
 		}
 		$('.statuedetails_audioControl').trigger('load');
 		$('#statuedetails_address p').html(statue.street);
+		$('#statuedetails_static_map_img').attr('src','img/'+statue.urlstring+'_map.jpg');
 		$.mobile.changePage("#statuedetails");
 	},
 	createStatuelist: function() {
@@ -255,7 +256,6 @@ $(document).on("pagebeforehide", "#tourpage", function () {
 $(document).on("pagehide", "#tourpage", function () {
 	$('.audioControl').trigger('pause');
 	$('.audioControl').prop('currentTime',0);
-
 });
 
 //SETTINGS EVENTS
