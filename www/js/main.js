@@ -52,6 +52,7 @@ var app = {
 		}
 		$('.statuedetails_audioControl').trigger('load');
 		$('#statuedetails_address p').html(statue.street);
+		$('#statuedetails_static_map_img').attr('src','img/'+statue.urlstring+'_map.jpg');
 		$.mobile.changePage("#statuedetails");
 	},
 	createStatuelist: function() {
@@ -308,16 +309,18 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 		$('#address_box span.ui-btn-text').html("Posición");
 		$('#static_map_box span.ui-btn-text').html("Mapa");
 	}
-	$('#audio_box').trigger('expand');
+	$('#audio_box').trigger('collapse');
 	$('#address_box').trigger('expand');
-	$('#detail_box').trigger('collapse');
+	$('#static_map_box').trigger('expand');
+	$('#detail_box').trigger('expand');
 });
 $(document).on("pagehide", "#statuedetails", function () {
 	$('.statuedetails_audioControl').trigger('pause');
 	$('.statuedetails_audioControl').prop('currentTime',0);
-	$('#audio_box').trigger('expand');
+	$('#audio_box').trigger('collapse');
 	$('#address_box').trigger('expand');
-	$('#detail_box').trigger('collapse');
+	$('#static_map_box').trigger('expand');
+	$('#detail_box').trigger('expand');
 });
 
 //fix for ios 7 status bar ** doesnt work leave for later

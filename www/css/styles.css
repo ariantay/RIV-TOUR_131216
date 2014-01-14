@@ -192,6 +192,15 @@ audio {
 {
 	text-align: left;
 }
+#statuedetails_static_map_img{
+	height: 100%;
+	width: 100%;
+}
+
+#statuedetails_static_map_container{
+	height: 120px;
+	width: 240px;
+}
 
 #statuedetails_thumb{
 	height: 100px;
