@@ -228,7 +228,7 @@ $(document).on("pagebeforeshow", "#tourpage", function () {
 $(document).on("pageshow", "#tourpage", function () { 
 	$('.flexslider').flexslider({
 		animation: "slide",
-		slideshowSpeed: 3200,
+		slideshowSpeed: 6000,
 		controlNav: false,
 		after: function(slider) {
 		/* auto-restart player if paused after action */

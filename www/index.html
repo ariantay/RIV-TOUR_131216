@@ -192,8 +192,10 @@
 		<h1>Settings</h1>
         	<a id='settings_home_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="home" data-theme='e' data-direction="reverse"></a>
     </div>	
+	<ul data-role="listview" data-theme='c'>
+	<li>
 	<form action="">
-		<div data-role="fieldcontain">
+		<div data-role="fieldcontain" >
     		<fieldset data-role="controlgroup">
     			<legend id='settings_legend_1'><div><a data-theme="e">Language</a></div></legend>
          		<input type="radio" name="radio-choice-2" id="radio-choice-21" value="english" checked="checked" />
@@ -205,6 +207,8 @@
     		<!--<div><button id="settings_save" class="button" onclick="location.href='options.html'" data-theme="e"> Save</button><br><br></div>-->
 		</div>
 	</form>	
+	</li>
+	<li>
 	<div data-role="fieldcontain">
  	<fieldset data-role="controlgroup">
  		<legend id='settings_legend_2'><div><a data-theme="e">Disable auto-routing</a></div></legend>
@@ -212,6 +216,8 @@
 		<label for="checkbox-1">OK</label>
     </fieldset>
 	</div>
+	</li>
+	<li>
 	<div data-role="fieldcontain">
  	<fieldset data-role="controlgroup">
  		<legend id='settings_legend_3'><div><a data-theme="e">Enable silent mode</a></div></legend>
@@ -219,4 +225,7 @@
 		<label for="checkbox-2">OK</label>
     </fieldset>
 	</div>
+		</form>
+	</li>		
+	</ul>
 </div>
