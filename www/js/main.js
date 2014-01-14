@@ -308,13 +308,17 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 	}
 	$('#audio_box').trigger('expand');
 	$('#address_box').trigger('expand');
+	$('#static_map_box').trigger('expand');
 	$('#detail_box').trigger('collapse');
 });
 $(document).on("pagehide", "#statuedetails", function () {
 	$('.statuedetails_audioControl').trigger('pause');
 	$('.statuedetails_audioControl').prop('currentTime',0);
+	
+	//Might need these, but probably not
 	$('#audio_box').trigger('expand');
 	$('#address_box').trigger('expand');
+	$('#static_map_box').trigger('expand');
 	$('#detail_box').trigger('collapse');
 });
 
