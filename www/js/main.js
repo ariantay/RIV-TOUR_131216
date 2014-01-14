@@ -149,6 +149,7 @@ var app = {
 };
 var cur_statue = -1;
 var cur_page = 0;  //used to determine if on tour pages or not
+var first_run = 1;
 
 //jquery mobile events handling
 //HOMEPAGE
@@ -193,9 +194,12 @@ $(document).on("pagehide", "#homepage", function () {
 
 //TOURPAGE_HOME EVENTS
 $(document).on("pagebeforeshow", "#tourpage_home", function () {
-	var language = $('input[name="radio-choice-2"]:checked').val();
-	$( '#popupBasic').popup( 'open', {positionTo: 'window'});
-       
+	//pop up on fires on first run
+	if (first_run == 1){
+		$( '#popupBasic').popup( 'open', {positionTo: 'window'});
+		first_run = 0;
+	}	 
+	var language = $('input[name="radio-choice-2"]:checked').val();   
 	if (language == 'english'){
 		$('#header h1').html("Tour");
 		$('#popupBasic p:first').html("Your position is indicated on the map by the blue dot.  Please make your way to the nearest statue represented by the red markers.  Once you arrive at that statue's location, information regarding that statue will automatically be displayed.");
