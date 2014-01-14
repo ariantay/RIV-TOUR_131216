@@ -80,8 +80,8 @@ var app = {
 	startTracking: function() {
         //alert("calling startTracking");
 		var options = {
-			frequency : 4000,
-			maximumAge : 30000,
+			frequency : 1000,
+			maximumAge : 15000,
 			enableHighAccuracy : true
 		};
 		//app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
