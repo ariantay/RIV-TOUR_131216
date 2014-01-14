@@ -163,6 +163,14 @@ audio {
 	height: 180px;
 	width: 135px;
 }
+#statuedetails_static_map_img{
+	height: 100%;
+	width: 100%;
+}
+#statuedetails_static_map_container{
+	height: 300px;
+	width: 600px;
+}
 
 #home_title
 {

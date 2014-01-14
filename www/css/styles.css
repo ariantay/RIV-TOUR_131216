@@ -211,6 +211,14 @@ element.style
 	height: 15%;
 	width: 90%;
 }
+#statuedetails_static_map_img{
+	height: 100%;
+	width: 100%;
+}
+#statuedetails_static_map_container{
+	height: 150px;
+	width: 300px;
+}
 .button
 {
 	height: 35px;
