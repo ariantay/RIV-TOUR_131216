@@ -159,8 +159,14 @@ audio {
     font-weight: bold;
     color:black;
 }
-
-
+#statuedetails_thumb{
+	height: 400px;
+	width: 300px;
+}
+.statuelist_imgs{
+	height: 400px;
+	width: 300px;
+}
 #home_title
 {
 	margin: 0 auto;

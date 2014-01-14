@@ -62,7 +62,7 @@ var app = {
 			for (var i=0; i<app.numStatues; i++) {
 				var statue = app.store.statues[i];
 				html += '<li>';
-				html += '<img src=img/' + statue.urlstring + '_thumb3.jpg>';
+				html += '<img class=statuelist_imgs src=img/' + statue.urlstring + '_thumb3.jpg>';
 				html += '<h3>' + statue.name + '</h3>';
 				//html += '<p style="font-size: 0.7em">' + statue.lon + ", " + statue.lat + '</p>';
 				html += '</li>';
