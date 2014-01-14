@@ -57,7 +57,7 @@ min-height:100%;
 #slideSize{
 	/*margin: 10 10 10 10;*/
 	height: 40%;
-	width: 90%;
+	width: 95%;
 	/*max-height: 340px;
 	max-width: 300px;
 	height: 70%;
@@ -84,7 +84,7 @@ min-height:100%;
 */
 #textContainer{
 	width: 95%; 
-	max-height:36%;
+	max-height:35%;
 	margin: 0 auto;
 	text-align: left;
 	overflow: auto;
@@ -127,7 +127,7 @@ min-height:100%;
 	display: table;
     margin: 0 auto;
 	text-align: center;
-	width: 80%;
+	width: 95%;
 	height: 10%;
 	position: relative;
 }

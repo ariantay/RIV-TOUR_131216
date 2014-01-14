@@ -153,6 +153,7 @@ var app = {
 };
 var cur_statue = -1;
 var cur_page = 0;  //used to determine if on tour pages or not
+
 //jquery mobile events handling
 //HOMEPAGE
 $(document).on("pagecreate", "#homepage", function () {
@@ -189,9 +190,11 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 	
 	$('.home_audioControl').trigger('load');
 });
+
 //TOURPAGE_HOME EVENTS
 $(document).on("pagebeforeshow", "#tourpage_home", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
+	$('#popupBasic').popup("open", {positionTo: 'window'});
 	if (language == 'english'){
 		$('#header h1').html("Tour");
 		$('#popupBasic p:first').html("Please make your way to the nearest statue.");

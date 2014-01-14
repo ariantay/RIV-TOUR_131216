@@ -65,6 +65,25 @@
 	</div>
 </div>
 
+<!--TOURPAGE_HOME-->
+<div data-role="page" id="tourpage_home">
+	<div id='header' data-role="header" data-theme='b' data-position="inline">
+		<h1>Tour</h1>
+			<a id='default_tour_page_back_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse"></a> 
+			<a href="#popupBasic" data-rel="popup" id='default_tour_page_help_button' class='button' class="ui-btn-left" data-icon="info" data-theme='e' data-direction="reverse"></a>
+			
+			<div data-role="popup" id="popupBasic" data-theme="e" data-position-to="window" class="ui-content">
+				<a data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+				<p><p>
+			</div>
+	</div>
+	<div id='map-canvas_holder'>
+		<div id='map-canvas'></div>
+	</div>  	  
+	
+	<div data-theme="a" data-role="footer" data-position="fixed"></div>
+</div>
+
 <!--TOUR PAGE-->
 <div data-role="page" id="tourpage">
 	<div id='header' data-role="header" data-theme='b' data-position="inline">
@@ -102,59 +121,6 @@
 	<div id='textContainer'>
 		<div id='statue_text' class='paragraph_display'>
 		</div>
-	</div>
-</div>
-<!--TOURPAGE_HOME-->
-<div data-role="page" id="tourpage_home">
-	<div id='header' data-role="header" data-theme='b' data-position="inline">
-		<h1>Tour</h1>
-			<a id='default_tour_page_back_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="arrow-l" data-theme='e' data-direction="reverse"></a> 
-			<a href="#popupBasic" data-rel="popup" id='default_tour_page_help_button' class='button' class="ui-btn-left" data-icon="info" data-theme='e' data-direction="reverse"></a>
-			
-			<div data-role="popup" id="popupBasic" data-theme="e" data-position-to="window" class="ui-content">
-				<a data-rel="back" data-role="button" data-theme="b" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				<p><p>
-			</div>
-	</div>
-	<div id='map-canvas_holder'>
-		<div id='map-canvas'></div>
-	</div>  	  
-	
-	<div data-theme="a" data-role="footer" data-position="fixed"></div>
-</div>
-
-<!--SETTINGS PAGE-->
-<div data-role="page" id="settings">
-	<div id='header' data-role="header" data-theme='b' data-position="inline">
-		<h1>Settings</h1>
-        	<a id='settings_home_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="home" data-theme='e' data-direction="reverse"></a>
-    </div>	
-	<form action="">
-		<div data-role="fieldcontain">
-    		<fieldset data-role="controlgroup">
-    			<legend id='settings_legend_1'><div><a data-theme="e">Language</a></div></legend>
-         		<input type="radio" name="radio-choice-2" id="radio-choice-21" value="english" checked="checked" />
-         		<label for="radio-choice-21">English</label>
-
-         		<input type="radio" name="radio-choice-2" id="radio-choice-22" value="spanish"  />
-         		<label for="radio-choice-22">Español</label>
-    		</fieldset>
-    		<!--<div><button id="settings_save" class="button" onclick="location.href='options.html'" data-theme="e"> Save</button><br><br></div>-->
-		</div>
-	</form>	
-	<div data-role="fieldcontain">
- 	<fieldset data-role="controlgroup">
- 		<legend id='settings_legend_2'><div><a data-theme="e">Disable auto-routing</a></div></legend>
-		<input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
-		<label for="checkbox-1">OK</label>
-    </fieldset>
-	</div>
-	<div data-role="fieldcontain">
- 	<fieldset data-role="controlgroup">
- 		<legend id='settings_legend_3'><div><a data-theme="e">Enable silent mode</a></div></legend>
-		<input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
-		<label for="checkbox-2">OK</label>
-    </fieldset>
 	</div>
 </div>
 
@@ -221,3 +187,38 @@
 
 </body>
 </html>
+
+<!--SETTINGS PAGE-->
+<div data-role="page" id="settings">
+	<div id='header' data-role="header" data-theme='b' data-position="inline">
+		<h1>Settings</h1>
+        	<a id='settings_home_button' class='button' onclick="location.href='#homepage'" class="ui-btn-left" data-ajax="false" data-icon="home" data-theme='e' data-direction="reverse"></a>
+    </div>	
+	<form action="">
+		<div data-role="fieldcontain">
+    		<fieldset data-role="controlgroup">
+    			<legend id='settings_legend_1'><div><a data-theme="e">Language</a></div></legend>
+         		<input type="radio" name="radio-choice-2" id="radio-choice-21" value="english" checked="checked" />
+         		<label for="radio-choice-21">English</label>
+
+         		<input type="radio" name="radio-choice-2" id="radio-choice-22" value="spanish"  />
+         		<label for="radio-choice-22">Español</label>
+    		</fieldset>
+    		<!--<div><button id="settings_save" class="button" onclick="location.href='options.html'" data-theme="e"> Save</button><br><br></div>-->
+		</div>
+	</form>	
+	<div data-role="fieldcontain">
+ 	<fieldset data-role="controlgroup">
+ 		<legend id='settings_legend_2'><div><a data-theme="e">Disable auto-routing</a></div></legend>
+		<input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+		<label for="checkbox-1">OK</label>
+    </fieldset>
+	</div>
+	<div data-role="fieldcontain">
+ 	<fieldset data-role="controlgroup">
+ 		<legend id='settings_legend_3'><div><a data-theme="e">Enable silent mode</a></div></legend>
+		<input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+		<label for="checkbox-2">OK</label>
+    </fieldset>
+	</div>
+</div>
