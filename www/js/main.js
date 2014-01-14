@@ -198,10 +198,11 @@ $(document).on("pagehide", "#homepage", function () {
 //TOURPAGE_HOME EVENTS
 $(document).on("pagebeforeshow", "#tourpage_home", function () {
 	var language = $('input[name="radio-choice-2"]:checked').val();
-	$('#popupBasic').popup("open", {positionTo: 'window'});
+	$( '#popupBasic').popup( 'open', {positionTo: 'window'});
+       
 	if (language == 'english'){
 		$('#header h1').html("Tour");
-		$('#popupBasic p:first').html("Please make your way to the nearest statue.");
+		$('#popupBasic p:first').html("Your position is indicated on the map by the blue dot.  Please make your way to the nearest statue represented by the red markers.  Once you arrive at that statue's location, information regarding that statue will automatically be displayed.");
 	}else{
 		$('#header h1').html("Gira");
 		$('#popupBasic p:first').html("Por favor, haga su camino hacia la estatua mas cercana.");
