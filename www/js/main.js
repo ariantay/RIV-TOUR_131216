@@ -236,8 +236,7 @@ $(document).on("pageshow", "#tourpage", function () {
 				slider.play();
 				console.log(slider);
 			}
-	}
-	  
+		}
    });
 	if(!$('#checkbox-2').is(':checked')){
 	$('.audioControl').trigger('play');
@@ -249,9 +248,13 @@ $(document).on("pageshow", "#tourpage", function () {
 	cur_page = 1;
     lock = 0;
 });
+$(document).on("pagebeforehide", "#tourpage", function () {
+	//$('.flexslider').flexslider(0);
+});
 $(document).on("pagehide", "#tourpage", function () {
 	$('.audioControl').trigger('pause');
 	$('.audioControl').prop('currentTime',0);
+
 });
 
 //SETTINGS EVENTS
