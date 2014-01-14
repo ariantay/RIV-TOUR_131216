@@ -33,7 +33,7 @@ min-height:95%;
 #homepage, #tourpage_home, #tourpage/*, #statuelist, #statuedetails*/{
 height:100%;
 min-height:100%;
-  background: url('../img/riverside_home.jpg') no-repeat center center fixed; 
+  background: url('../img/riverside_home_filtered.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -181,16 +181,11 @@ audio {
     color:black;
 }
 
-#popupBasic
+#popupBasic-popup
 {
-	right: 16.6%;	
-}
-
-element.style
-{
-	max-width: 40%;
-	top: 15%;
-	left: 35%;
+	max-width: 85% !important;
+	top: 25% !important;
+	left: 8% !important;
 }
 
 #detail_box
@@ -211,14 +206,8 @@ element.style
 	height: 15%;
 	width: 90%;
 }
-#statuedetails_static_map_img{
-	height: 100%;
-	width: 100%;
-}
-#statuedetails_static_map_container{
-	height: 120px;
-	width: 240px;
-}
+
+
 .button
 {
 	height: 35px;

@@ -159,18 +159,7 @@ audio {
     font-weight: bold;
     color:black;
 }
-#statuedetails_thumb{
-	height: 180px;
-	width: 135px;
-}
-#statuedetails_static_map_img{
-	height: 100%;
-	width: 100%;
-}
-#statuedetails_static_map_container{
-	height: 300px;
-	width: 600px;
-}
+
 
 #home_title
 {
@@ -195,12 +184,6 @@ audio {
     color:black;
 }
 
-element.style
-{
-	max-width: 40%;
-	top: 25%;
-	left: 35%;
-}
 
 #detail_box
 {
@@ -212,6 +195,13 @@ element.style
 	height: 35px;
 	width: 28px;
 	font-size: 6px;
+}
+
+#popupBasic-popup
+{
+	max-width: 40% !important;
+	top: 30% !important;
+	left: 30% !important;
 }
 
 

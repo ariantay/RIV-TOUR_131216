@@ -52,7 +52,6 @@ var app = {
 		}
 		$('.statuedetails_audioControl').trigger('load');
 		$('#statuedetails_address p').html(statue.street);
-		$('#statuedetails_static_map_img').attr('src','img/'+statue.urlstring+'_map.jpg');
 		$.mobile.changePage("#statuedetails");
 	},
 	createStatuelist: function() {
@@ -197,16 +196,16 @@ $(document).on("pagehide", "#homepage", function () {
 $(document).on("pagebeforeshow", "#tourpage_home", function () {
 	//pop up on fires on first run
 	if (first_run == 1){
-		$( '#popupBasic').popup( 'open', {positionTo: 'window'});
+		$( '#popupBasic').popup( 'open');
 		first_run = 0;
 	}	 
 	var language = $('input[name="radio-choice-2"]:checked').val();   
 	if (language == 'english'){
 		$('#header h1').html("Tour");
-		$('#popupBasic p:first').html("Your position is indicated on the map by the blue dot.  Please make your way to the nearest statue represented by the red markers.  Once you arrive at that statue's location, information regarding that statue will automatically be displayed.");
+		$('#popupBasic p').html("Your position is indicated on the map by the blue dot.  Please make your way to the nearest statue represented by the red markers.  Once you arrive at that statue's location, information regarding that statue will automatically be displayed.");
 	}else{
 		$('#header h1').html("Gira");
-		$('#popupBasic p:first').html("Por favor, haga su camino hacia la estatua mas cercana.");
+		$('#popupBasic p').html("Su posición esta indicada en el mapa vía el puto azul. Por favor haga su camino hacia la estatua más cercana representa por el marcador rojo.  Cuando haya llegado a la localización de esa estatua, información con respecto a esa estatua sera desplegada automáticamente.");
 	}
 });
 $(document).on("pageshow", "#tourpage_home", function () {
@@ -256,6 +255,7 @@ $(document).on("pagebeforehide", "#tourpage", function () {
 $(document).on("pagehide", "#tourpage", function () {
 	$('.audioControl').trigger('pause');
 	$('.audioControl').prop('currentTime',0);
+
 });
 
 //SETTINGS EVENTS
@@ -302,24 +302,22 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 	if (language == 'english'){
 		$('#detail_box span.ui-btn-text').html("Detail");
 		$('#address_box span.ui-btn-text').html("Location");
+		$('#static_map_box span.ui-btn-text').html("Map");
 	}else{
 		$('#detail_box span.ui-btn-text').html("Detalles");
 		$('#address_box span.ui-btn-text').html("Posición");
+		$('#static_map_box span.ui-btn-text').html("Mapa");
 	}
-	$('#audio_box').trigger('collapse');
+	$('#audio_box').trigger('expand');
 	$('#address_box').trigger('expand');
-	$('#static_map_box').trigger('expand');
-	$('#detail_box').trigger('expand');
+	$('#detail_box').trigger('collapse');
 });
 $(document).on("pagehide", "#statuedetails", function () {
 	$('.statuedetails_audioControl').trigger('pause');
 	$('.statuedetails_audioControl').prop('currentTime',0);
-	
-	//Might need these, but probably not
-	$('#audio_box').trigger('collapse');
+	$('#audio_box').trigger('expand');
 	$('#address_box').trigger('expand');
-	$('#static_map_box').trigger('expand');
-	$('#detail_box').trigger('expand');
+	$('#detail_box').trigger('collapse');
 });
 
 //fix for ios 7 status bar ** doesnt work leave for later
