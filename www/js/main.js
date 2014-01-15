@@ -81,8 +81,7 @@ var app = {
 	startTracking: function() {
         //alert("calling startTracking");
 		var options = {
-			frequency : 1000,
-			maximumAge : 15000,
+			maximumAge : 1000,
 			enableHighAccuracy : true
 		};
 		//app.watchID = navigator.geolocation.watchPosition(app.onSuccess, app.onError, options);
@@ -112,8 +111,8 @@ var app = {
 		}
 	},
 	onError: function (error) {
-		alert('code: '    + error.code    + '\n' +
-			  'message: ' + error.message + '\n');
+		//alert('code: '    + error.code    + '\n' +
+		//	  'message: ' + error.message + '\n');
 	},
 	getDistanceFromLatLonInFeet: function (lat1,lon1,lat2,lon2) {
 		var R = 6371; // Radius of the earth in km
@@ -219,11 +218,54 @@ $(document).on("pageshow", "#tourpage_home", function () {
 	cur_page = 1;
 	cur_statue = -1;
 	lock = 0;
+               navigator.splashscreen.hide();
 });
+
+
 $(document).on("pagehide", "#tourpage_home", function () {
 	//$('.audioControl').trigger('pause');
 	//$('.audioControl').prop('currentTime',0);
 });
+$(document).on("pagebeforehide", "#homepage", function () {
+               //$(window).resize();		//slider won't show until resize...
+               navigator.splashscreen.show();
+               });
+$(document).on("pagebeforehide", "#tourpage", function () {
+               //$('.flexslider').flexslider(0);
+               navigator.splashscreen.show();
+               });
+$(document).on("pagebeforehide", "#tourpage_home", function () {
+               //$('.flexslider').flexslider(0);
+               navigator.splashscreen.show();
+               });
+$(document).on("pagebeforehide", "#settings", function () {
+               //$('.flexslider').flexslider(0);
+               navigator.splashscreen.show();
+               });
+$(document).on("pagebeforehide", "#statuelist", function () {
+               //$('.flexslider').flexslider(0);
+               navigator.splashscreen.show();
+               });
+$(document).on("pagebeforehide", "#statuedetails", function () {
+               //$('.flexslider').flexslider(0);
+               navigator.splashscreen.show();
+               });
+
+$(document).on("pageshow", "#homepage", function () {
+               //$(window).resize();		//slider won't show until resize...
+               navigator.splashscreen.hide();
+               });
+$(document).on("pageshow", "#statuelist", function () {
+               //$('.flexslider').flexslider(0);
+               navigator.splashscreen.hide();
+               });
+$(document).on("pageshow", "#statuedetails", function () {
+               //$('.flexslider').flexslider(0);
+               navigator.splashscreen.hide();
+               });
+
+
+
 //TOURPAGE EVENTS
 $(document).on("pagebeforeshow", "#tourpage", function () {
 });
@@ -249,10 +291,10 @@ $(document).on("pageshow", "#tourpage", function () {
 	$(window).resize();		//slider won't show until resize...
 	cur_page = 1;
     lock = 0;
+               
+               navigator.splashscreen.hide();
 });
-$(document).on("pagebeforehide", "#tourpage", function () {
-	//$('.flexslider').flexslider(0);
-});
+
 $(document).on("pagehide", "#tourpage", function () {
 	$('.audioControl').trigger('pause');
 	$('.audioControl').prop('currentTime',0);
@@ -278,6 +320,7 @@ $(document).on("pageshow", "#settings", function () {
 	mapper.resize();
 	cur_page = 0;
 	cur_statue = -1;
+               navigator.splashscreen.hide();
 });
 //STATUELIST EVENTS
 $(document).on("pagecreate", "#statuelist", function () {
