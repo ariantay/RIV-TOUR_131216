@@ -201,7 +201,10 @@ audio {
 	height: 120px;
 	width: 240px;
 }
-
+#statuedetails_address{
+	text-decoration:underline;
+	text-decoration-color: #3366BB;	
+}
 #statuedetails_thumb{
 	height: 100px;
 	width: 75px;

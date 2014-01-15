@@ -188,7 +188,10 @@ audio {
 	height: 180px;
 	width: 135px;
 }
-
+#statuedetails_address{
+	text-decoration:underline;
+	text-decoration-color:#3366BB;	
+}
 #statuedetails_static_map_img{
 	height: 100%;
 	width: 100%;
