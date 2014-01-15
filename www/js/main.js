@@ -32,15 +32,15 @@ var app = {
 			$('.image_4').attr('src','img/'+statue.urlstring+'_4.jpg');
 			$('.image_5').attr('src','img/'+statue.urlstring+'_5.jpg');
 		}
-		
         cur_statue = statueID;
+		//test latlong
+		console.log('mapper values: ' + mapper.marker.getPosition().lat() +', '+mapper.marker.getPosition().lng());
 		$.mobile.changePage("#tourpage", {allowSamePageTransition:true});
 	},
 	showDetails: function(statueID) {
 		var statue = app.store.statues[statueID];
 		$('#statuedetails_thumb').attr('src','img/'+statue.urlstring+'_thumb3.jpg');
 		$('#statuedetails_thumbtext h2').html(statue.name);
-		//$('#statuedetails_thumbtext p').html(statue.lon + ' ' + statue.lat);
 		
 		var language = $('input[name="radio-choice-2"]:checked').val();
 		if (language == 'english'){
@@ -53,6 +53,17 @@ var app = {
 		$('.statuedetails_audioControl').trigger('load');
 		$('#statuedetails_address p').html(statue.street);
 		$('#statuedetails_static_map_img').attr('src','img/'+statue.urlstring+'_map.jpg');
+		//changes 0114
+		$('#statuedetails_address').click(function() {
+			var saddr = mapper.marker.getPosition().lat()+','+mapper.marker.getPosition().lng();
+			var daddr=statue.lat+','+statue.lon;
+			var url='http://maps.google.com/maps?saddr='+saddr+'&daddr='+daddr;
+			window.open(url,'_blank','location=yes');
+			//window.open('http://apache.org', '_blank', 'location=yes');			
+			//http://maps.google.com/maps?saddr=-37.8218956215849,144.9599325656891&daddr=-37.8218956215849,144.9599325656891			
+		});
+		
+		
 		$.mobile.changePage("#statuedetails");
 	},
 	createStatuelist: function() {
