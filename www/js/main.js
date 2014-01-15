@@ -45,13 +45,17 @@ var app = {
 		var language = $('input[name="radio-choice-2"]:checked').val();
 		if (language == 'english'){
 			$('#statuedetails_detailstext p').html(statue.info.english);
+            	$('#statuedetails_address p').html(statue.street);
 			$('.statuedetails_audioFile').attr('src','audio/'+statue.urlstring+'_eng.mp3');
 		}else{
 			$('#statuedetails_detailstext p').html(statue.info.spanish);
+            $('#statuedetails_address p').html(statue.street_spanish);
 			$('.statuedetails_audioFile').attr('src','audio/'+statue.urlstring+'_esp.mp3');
 		}
 		$('.statuedetails_audioControl').trigger('load');
-		$('#statuedetails_address p').html(statue.street);
+        
+	
+        
 		$('#statuedetails_static_map_img').attr('src','img/'+statue.urlstring+'_map.jpg');
 		$.mobile.changePage("#statuedetails");
 	},
@@ -174,7 +178,7 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 		$('#home_text').html("Riverside has long maintained a spirit of Internationalism and recognition of its multicultural history.  Going back to Frank Miller, the founder of the Mission Inn, Riverside has hosted dignitaries from countries all over the world and provided leadership on an International scale.  Riverside’s multiculturism has existed for nearly 150 years with large segments of various cultures within its population going back to the 1870s.  For example the Mission Inn hosted Japanese, Russian and European dignitaries, national and important state politicians and celebrities, such as several US presidents, Prince Kaya of Japan, Prince Gustav of Sweden, Booker T. Washington, John Muir, and Amelia Earhart.  The World Affairs Council was started in Riverside at the Mission Inn (and was once attended by John F. Kennedy here) and other international peace and social conferences have been hosted here.</br></br>" + 
 		"Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.");
 	}else{
-		$('#header h3').html("Ciudad de Riverside Guía de Turismo");
+		$('#header h3').html("Guía de Turismo de la Ciudad de Riverside");
 		$('#map_link span.ui-btn-text').html("Comensar");
 		$('#list_link span.ui-btn-text').html("Lista");
 		$('#settings_link span.ui-btn-text').html("Ajustes");
@@ -205,7 +209,7 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 		$('#popupBasic p').html("Your position is indicated on the map by the blue dot.  Please make your way to the nearest statue represented by the red markers.  Once you arrive at that statue's location, information regarding that statue will automatically be displayed.");
 	}else{
 		$('#header h1').html("Gira");
-		$('#popupBasic p').html("Su posición esta indicada en el mapa vía el puto azul. Por favor haga su camino hacia la estatua más cercana representa por el marcador rojo.  Cuando haya llegado a la localización de esa estatua, información con respecto a esa estatua sera desplegada automáticamente.");
+		$('#popupBasic p').html("Su posición esta indicada en el mapa vía el puto azul. Por favor haga su camino hacia la estatua más cercana representa por el marcador rojo.  Cuando hayas llegado a la ubicación de esa estatua, información con respecto a esa estatua sera desplegada automáticamente.");
 	}
 });
 $(document).on("pageshow", "#tourpage_home", function () {
@@ -333,7 +337,7 @@ $(document).on("pagebeforeshow", "#statuelist", function () {
 	if (language == 'english'){
 		$('#header h1').html("Statue List");
 	}else{
-		$('#header h1').html("Lista De Estatuas");
+		$('#header h1').html("Lista de Estatuas");
 	}
 });
 //STATUEDETAILS EVENTS
@@ -349,7 +353,7 @@ $(document).on("pagebeforeshow", "#statuedetails", function () {
 		$('#static_map_box span.ui-btn-text').html("Map");
 	}else{
 		$('#detail_box span.ui-btn-text').html("Detalles");
-		$('#address_box span.ui-btn-text').html("Posición");
+		$('#address_box span.ui-btn-text').html("Ubicación");
 		$('#static_map_box span.ui-btn-text').html("Mapa");
 	}
 	$('#audio_box').trigger('collapse');
