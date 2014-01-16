@@ -179,7 +179,7 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 		"Riverside was the first American city to take part in the International Sister City program initiated after World War II. That tradition continues today with a robust and global Sister City program including cities in the countries of Japan, Mexico, Korea, China, India, Ghana and Germany.  The Statues of Main Street Riverside embody this spirit of internationalism with recognition of various significant civil rights and historical leaders, some with international or national significance, and others of prominent local importance.");
 	}else{
 		$('#header h3').html("Guía de Turismo de la Ciudad de Riverside");
-		$('#map_link span.ui-btn-text').html("Comensar");
+		$('#map_link span.ui-btn-text').html("Comenzar");
 		$('#list_link span.ui-btn-text').html("Lista");
 		$('#settings_link span.ui-btn-text').html("Ajustes");
 		$('.home_audioFile').attr('src','audio/spirit_esp.mp3');
@@ -209,7 +209,7 @@ $(document).on("pagebeforeshow", "#tourpage_home", function () {
 		$('#popupBasic p').html("Your position is indicated on the map by the blue dot.  Please make your way to the nearest statue represented by the red markers.  Once you arrive at that statue's location, information regarding that statue will automatically be displayed.");
 	}else{
 		$('#header h1').html("Gira");
-		$('#popupBasic p').html("Su posición esta indicada en el mapa vía el puto azul. Por favor haga su camino hacia la estatua más cercana representa por el marcador rojo.  Cuando hayas llegado a la ubicación de esa estatua, información con respecto a esa estatua sera desplegada automáticamente.");
+		$('#popupBasic p').html("Su posición está indicada en el mapa vía el punto azul. Por favor camine hacia la estatua más cercana representada por el marcador rojo.  Al llegar a la ubicación de esa estatua, información con respecto a esa estatua será desplegada automáticamente.");
 	}
 });
 $(document).on("pageshow", "#tourpage_home", function () {
