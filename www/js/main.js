@@ -222,7 +222,7 @@ $(document).on("pageshow", "#tourpage_home", function () {
 	cur_page = 1;
 	cur_statue = -1;
 	lock = 0;
-               navigator.splashscreen.hide();
+               //navigator.splashscreen.hide();
 });
 
 
@@ -232,40 +232,40 @@ $(document).on("pagehide", "#tourpage_home", function () {
 });
 $(document).on("pagebeforehide", "#homepage", function () {
                //$(window).resize();		//slider won't show until resize...
-               navigator.splashscreen.show();
+			   //navigator.splashscreen.show();
                });
 $(document).on("pagebeforehide", "#tourpage", function () {
                //$('.flexslider').flexslider(0);
-               navigator.splashscreen.show();
+               //navigator.splashscreen.show();
                });
 $(document).on("pagebeforehide", "#tourpage_home", function () {
                //$('.flexslider').flexslider(0);
-               navigator.splashscreen.show();
+               //navigator.splashscreen.show();
                });
 $(document).on("pagebeforehide", "#settings", function () {
                //$('.flexslider').flexslider(0);
-               navigator.splashscreen.show();
+               //navigator.splashscreen.show();
                });
 $(document).on("pagebeforehide", "#statuelist", function () {
                //$('.flexslider').flexslider(0);
-               navigator.splashscreen.show();
+               //navigator.splashscreen.show();
                });
 $(document).on("pagebeforehide", "#statuedetails", function () {
                //$('.flexslider').flexslider(0);
-               navigator.splashscreen.show();
+               //navigator.splashscreen.show();
                });
 
 $(document).on("pageshow", "#homepage", function () {
                //$(window).resize();		//slider won't show until resize...
-               navigator.splashscreen.hide();
+               //navigator.splashscreen.hide();
                });
 $(document).on("pageshow", "#statuelist", function () {
                //$('.flexslider').flexslider(0);
-               navigator.splashscreen.hide();
+               //navigator.splashscreen.hide();
                });
 $(document).on("pageshow", "#statuedetails", function () {
                //$('.flexslider').flexslider(0);
-               navigator.splashscreen.hide();
+               //navigator.splashscreen.hide();
                });
 
 
@@ -296,7 +296,7 @@ $(document).on("pageshow", "#tourpage", function () {
 	cur_page = 1;
     lock = 0;
                
-               navigator.splashscreen.hide();
+               //navigator.splashscreen.hide();
 });
 
 $(document).on("pagehide", "#tourpage", function () {
@@ -324,7 +324,7 @@ $(document).on("pageshow", "#settings", function () {
 	mapper.resize();
 	cur_page = 0;
 	cur_statue = -1;
-               navigator.splashscreen.hide();
+               //navigator.splashscreen.hide();
 });
 //STATUELIST EVENTS
 $(document).on("pagecreate", "#statuelist", function () {
