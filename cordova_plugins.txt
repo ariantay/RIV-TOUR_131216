@@ -1,0 +1,5 @@
+phonegap local plugin add org.apache.cordova.splashscreen
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-media-capture.git
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git

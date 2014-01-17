@@ -1,1 +1,0 @@
-phonegap local plugin add org.apache.cordova.splashscreen
