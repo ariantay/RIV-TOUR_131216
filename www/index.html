@@ -51,18 +51,30 @@
             </ul>
         </div>
     </div>
+	<!--
  	<div id="home_text_container">
  		<p id = "home_title">		
 		</P>
 		<p id='home_text' class="paragraph_display"></p>		
 	</div>
-	
-	<div id='home_audioContainer'>
-		<audio class= 'home_audioControl' controls>
-			<source class='home_audioFile' type="audio/mpeg">
-				Your browser does not support the audio element.
-		</audio>
-	</div>
+	-->
+	<form>
+	<ul data-role="listview" data-theme='c'>
+	<li>
+	<div class="ui-grid-a">
+        <div class="ui-block-a">
+            <!--<label for="slider-12">Slider:</label>-->
+            <input type="range" name="slider-12" id="slider-12" data-highlight="true" min="0" max="100" value="50">
+        </div><!-- /ui-block -->
+        <div class="ui-block-b">
+            <!--<label for="flip-10">Flip toggle switch:</label>-->
+            <select name="flip-10" id="flip-10" data-role="slider">
+                <option value="off">Play</option>
+                <option value="on">Pause</option>
+            </select>
+        </div><!-- /ui-block -->
+	</li>
+	</form>
 </div>
 
 <!--TOURPAGE_HOME-->

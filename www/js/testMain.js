@@ -154,7 +154,7 @@ var app = {
 var cur_statue = -1;
 var cur_page = 0;  //used to determine if on tour pages or not
 var first_run = 1;
-
+  
 //jquery mobile events handling
 //HOMEPAGE
 $(document).on("pagecreate", "#homepage", function () {
@@ -188,9 +188,22 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 		"El Mission Inn ha tenido invitados dignitarios  japoneses, rusos,  y europeos. Otros invitados incluyen políticos nacionales y locales, gente famosa, presidentes de los Estados Unidos, el príncipe Kaya de Japón, el príncipe Gustavo de Suecia, el activista Booker T. Washington, el escritor John Muir, y la primera mujer de aviación Amelia Earhart. La Consejería de los Asuntos Mundiales empezó en Riverside en el Mission Inn y fue asistida por John F. Kennedy una vez. Otras conferencias para paz internacional y otros eventos sociales también tomaron lugar en este sitio.</br></br>" +
 		"Riverside fue la primera ciudad Americana en participar en el programa de Ciudades Hermanas Internacionales que empezó después de la segunda guerra mundial. Esa tradición continúa hasta este día y más ciudades como Japón, México, Corea, China, India, Ghana, y Alemania son ya miembros de este gran programa. Las estatuas en la calle Main son un símbolo de orgullo internacional que reconocen a varios e importantes líderes de los derechos humanos y de la historia.");
 	}
-	$('.home_audioControl').trigger('load');
+	//$('.home_audioControl').trigger('load');
 
-	$('#home_text').click(function(){var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");;audioTest1.play();console.log('audio playing');});
+    var startPos = '$("#flip-10").slider("value");', endPos = '';
+    $("#flip-10").on("slidestop", function(event, ui) {
+        endPos = ui.value;
+        if (startPos != endPos) {
+            console.log($("#flip-10").slider("value"));
+        }
+        startPos = endpos;
+    });
+
+	$('#home_text').click(function(){
+	var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");
+	audioTest1.play();
+	console.log('audio playing');
+	});
 	
 });
 
