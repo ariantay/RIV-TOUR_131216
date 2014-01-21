@@ -154,6 +154,8 @@ var app = {
 var cur_statue = -1;
 var cur_page = 0;  //used to determine if on tour pages or not
 var first_run = 1;
+var homepage_audio = '';
+var audio_status = 0;
   
 //jquery mobile events handling
 //HOMEPAGE
@@ -164,6 +166,15 @@ $(document).on("pagecreate", "#homepage", function () {
 	}
 	cur_page = 0;
 	cur_statue = -1;
+	homepage_audio = new Media("/android_asset/www/audio/king_eng.mp3",
+						null,
+						null, 
+						function(intStatus){
+							audio_status = intStatus;
+							console.log(intStatus);
+							console.log('global var: '+audio_status+', intstatus: '+intStatus);
+					});
+					console.log(homepage_audio);
 });	
 $(document).on("pagebeforeshow", "#homepage", function () {
     cur_page = 0;
@@ -196,17 +207,18 @@ $(document).on("pagebeforeshow", "#homepage", function () {
     $('#controlButton').click(function(){
         //endPos = ui.value;
         //if (startPos != endPos) {
-		var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");
-		audioTest1.play();
+		
+		if(audio_status < 3 && audio_status > 0){
+			homepage_audio.pause();
+			console.log('in media test pause'+audio_status);
+		}else{
+			homepage_audio.play();
+			console.log('in media test'+audio_status);
+		}
         //}
         //startPos = endpos;
     });
 
-	$('#home_text').click(function(){
-		var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");
-		audioTest1.play();
-		console.log('audio playing');
-	});
 	
 });
 
@@ -277,6 +289,7 @@ $(document).on("pagebeforehide", "#statuedetails", function () {
 $(document).on("pageshow", "#homepage", function () {
                //$(window).resize();		//slider won't show until resize...
                //navigator.splashscreen.hide();
+					
                });
 $(document).on("pageshow", "#statuelist", function () {
                //$('.flexslider').flexslider(0);
