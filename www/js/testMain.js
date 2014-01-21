@@ -189,20 +189,23 @@ $(document).on("pagebeforeshow", "#homepage", function () {
 		"Riverside fue la primera ciudad Americana en participar en el programa de Ciudades Hermanas Internacionales que empezó después de la segunda guerra mundial. Esa tradición continúa hasta este día y más ciudades como Japón, México, Corea, China, India, Ghana, y Alemania son ya miembros de este gran programa. Las estatuas en la calle Main son un símbolo de orgullo internacional que reconocen a varios e importantes líderes de los derechos humanos y de la historia.");
 	}
 	//$('.home_audioControl').trigger('load');
-
-    var startPos = '$("#flip-10").slider("value");', endPos = '';
-    $("#flip-10").on("slidestop", function(event, ui) {
-        endPos = ui.value;
-        if (startPos != endPos) {
-            console.log($("#flip-10").slider("value"));
-        }
-        startPos = endpos;
+	
+	//var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");
+    //var startPos = '$("#flip-10").slider("value");'
+	//var endPos = '';
+    $('#controlButton').click(function(){
+        //endPos = ui.value;
+        //if (startPos != endPos) {
+		var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");
+		audioTest1.play();
+        //}
+        //startPos = endpos;
     });
 
 	$('#home_text').click(function(){
-	var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");
-	audioTest1.play();
-	console.log('audio playing');
+		var audioTest1 = new Media("/android_asset/www/audio/king_eng.mp3");
+		audioTest1.play();
+		console.log('audio playing');
 	});
 	
 });
